@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LemonadeStand
 {
-    interface UserInterface
+    interface IUserInterface
     {
 
     }

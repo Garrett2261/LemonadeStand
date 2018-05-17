@@ -10,6 +10,9 @@ namespace LemonadeStand
     {
         static void Main(string[] args)
         {
+            Player Player1 = new Player(7, .25, 4, 4, 4);
+            Player1.GetRecipe();
+
         }
     }
 }
