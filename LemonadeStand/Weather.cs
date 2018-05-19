@@ -9,7 +9,8 @@ namespace LemonadeStand
 {
     class Weather
     {
-        Random Temperature = new Random();
+        public Random Temperature = new Random();
+        public Random WeatherType = new Random();
         
 
 
@@ -25,17 +26,48 @@ namespace LemonadeStand
             List<string> Condition = new List<string>();
             Condition.Add("Sunny");
             Condition.Add("Rainy");
-            Condition.Add("Cloudy");
+            Condition.Add("Partly Cloudy");
             Condition.Add("Overcast");
 
-            Random WeatherType = new Random();
-            int element = WeatherType.Next(Condition.Count);
-            string WeatherForDay = Condition[element];
+            
+            
+            
 
-            for (int i = 0; i < 7; i++)
+            for (int i = 0; i < 7; ++i)
             {
-                Console.WriteLine(WeatherForDay);
-                Console.ReadLine();
+                
+                if ((WeatherType.Next(Condition.Count)) == 0)
+                {
+                    Console.WriteLine("Sunny");
+                    Console.ReadLine();
+                }
+
+                else if ((WeatherType.Next(Condition.Count)) == 1)
+                {
+                    Console.WriteLine("Rainy");
+                    Console.ReadLine();
+                }
+
+                else if ((WeatherType.Next(Condition.Count)) == 2)
+                {
+                    Console.WriteLine("Partly Cloudy");
+                    Console.ReadLine();
+                }
+
+                else if ((WeatherType.Next(Condition.Count)) == 3)
+                {
+                    Console.WriteLine("Overcast");
+                    Console.ReadLine();
+                }
+
+                else
+                {
+                    break;
+                }
+
+
+
+                
             }
 
             
@@ -59,14 +91,15 @@ namespace LemonadeStand
 
         public void GetTemperature()
         {
-            Random Degrees = new Random();
-            
-
             for (int i = 0; i < 7; ++i)
             {
-                Console.WriteLine(Degrees.Next(50, 100));
+                Console.Write(Temperature.Next(50, 100));
                 Console.ReadLine();
             }
+            
+
+            
+            
         }
 
 
