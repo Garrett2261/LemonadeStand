@@ -15,6 +15,8 @@ namespace LemonadeStand
 
             Weather Day = new Weather();
             Day.GetTemperature();
+
+            
             
             
             

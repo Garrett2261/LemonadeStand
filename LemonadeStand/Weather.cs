@@ -62,22 +62,9 @@ namespace LemonadeStand
             Random Degrees = new Random();
             
 
-            for (int i = 0; i < 1; ++i)
+            for (int i = 0; i < 7; ++i)
             {
-                int Monday = Degrees.Next(50, 100);
-                int Tuesday = Degrees.Next(50, 100);
-                int Wednesday = Degrees.Next(50, 100);
-                int Thursday = Degrees.Next(50, 100);
-                int Friday = Degrees.Next(50, 100);
-                int Saturday = Degrees.Next(50, 100);
-                int Sunday = Degrees.Next(50, 100);
-                Console.WriteLine(Monday);
-                Console.WriteLine(Tuesday);
-                Console.WriteLine(Wednesday);
-                Console.WriteLine(Thursday);
-                Console.WriteLine(Friday);
-                Console.WriteLine(Saturday);
-                Console.WriteLine(Sunday);
+                Console.WriteLine(Degrees.Next(50, 100));
                 Console.ReadLine();
             }
         }
