@@ -62,7 +62,7 @@ namespace LemonadeStand
             Random Degrees = new Random();
             
 
-            for (int i = 0; i < 7; ++i)
+            for (int i = 0; i < 1; ++i)
             {
                 int Monday = Degrees.Next(50, 100);
                 int Tuesday = Degrees.Next(50, 100);
