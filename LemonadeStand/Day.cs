@@ -9,5 +9,14 @@ namespace LemonadeStand
     class Day
     {
         
+        public Day()
+        {
+
+        }
+
+        public void SeeDemand()
+        {
+            
+        }
     }
 }
