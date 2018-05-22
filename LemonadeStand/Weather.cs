@@ -13,6 +13,8 @@ namespace LemonadeStand
         public Random WeatherType = new Random();
         
         
+        
+        
 
 
         public Weather()
@@ -23,38 +25,46 @@ namespace LemonadeStand
 
         public void WeatherCondition()
         {
-            List<string> Condition = new List<string>();
-            Condition.Add("Sunny");
-            Condition.Add("Rainy");
-            Condition.Add("Partly Cloudy");
-            Condition.Add("Overcast");
+            
 
-            
-            
-            
+            List<string> Condition = new List<string>
+            {
+                "Sunny",
+                "Rainy",
+                "Partly Cloudy",
+                "Overcast"
+            };
+
+            int Index = WeatherType.Next(Condition.Count);
+            string Element = Condition.ElementAt(Index);
+
+
+
+
 
             for (int i = 0; i < 7; ++i)
             {
+                WeatherType.Next(1, 4);
                 
-                if ((WeatherType.Next(Condition.Count)) == 0)
+                if ((WeatherType.Next(1, 4)) == 1)
                 {
                     Console.WriteLine("Sunny");
                     Console.ReadLine();
                 }
 
-                else if ((WeatherType.Next(Condition.Count)) == 1)
+                else if ((WeatherType.Next(1, 4)) == 2)
                 {
                     Console.WriteLine("Rainy");
                     Console.ReadLine();
                 }
 
-                else if ((WeatherType.Next(Condition.Count)) == 2)
+                else if ((WeatherType.Next(1, 4)) == 3)
                 {
                     Console.WriteLine("Partly Cloudy");
                     Console.ReadLine();
                 }
 
-                else if ((WeatherType.Next(Condition.Count)) == 3)
+                else if ((WeatherType.Next(1, 4)) == 4)
                 {
                     Console.WriteLine("Overcast");
                     Console.ReadLine();
@@ -62,7 +72,8 @@ namespace LemonadeStand
 
                 else
                 {
-                    
+                    Console.WriteLine(Element);
+                    Console.ReadLine();
                 }
 
 
