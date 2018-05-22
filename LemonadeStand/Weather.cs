@@ -12,7 +12,7 @@ namespace LemonadeStand
         public Random Temperature = new Random();
         public Random WeatherType = new Random();
         
-
+        
 
 
         public Weather()
@@ -62,7 +62,7 @@ namespace LemonadeStand
 
                 else
                 {
-                    break;
+                    
                 }
 
 
