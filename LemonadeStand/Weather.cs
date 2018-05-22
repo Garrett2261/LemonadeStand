@@ -23,7 +23,7 @@ namespace LemonadeStand
 
         }
 
-        public void WeatherCondition()
+        public void GetWeeklyForecast()
         {
             
 
@@ -49,30 +49,35 @@ namespace LemonadeStand
                 if ((WeatherType.Next(1, 4)) == 1)
                 {
                     Console.WriteLine("Sunny");
+                    Console.Write(Temperature.Next(50, 100) + " " + "degrees");
                     Console.ReadLine();
                 }
 
                 else if ((WeatherType.Next(1, 4)) == 2)
                 {
                     Console.WriteLine("Rainy");
+                    Console.Write(Temperature.Next(50, 100) + " " + "degrees");
                     Console.ReadLine();
                 }
 
                 else if ((WeatherType.Next(1, 4)) == 3)
                 {
                     Console.WriteLine("Partly Cloudy");
+                    Console.Write(Temperature.Next(50, 100) + " " + "degrees");
                     Console.ReadLine();
                 }
 
                 else if ((WeatherType.Next(1, 4)) == 4)
                 {
                     Console.WriteLine("Overcast");
+                    Console.Write(Temperature.Next(50, 100) + " " + "degrees");
                     Console.ReadLine();
                 }
 
                 else
                 {
                     Console.WriteLine(Element);
+                    Console.Write(Temperature.Next(50, 100) + " " + "degrees");
                     Console.ReadLine();
                 }
 
@@ -100,39 +105,11 @@ namespace LemonadeStand
             
         }
 
-        public void GetTemperature()
-        {
-            for (int i = 0; i < 7; ++i)
-            {
-                Console.Write(Temperature.Next(50, 100));
-                Console.ReadLine();
-            }
-            
-
-            
-            
-        }
+        
 
 
 
-        public void GetWeeklyForecast()
-        {
-            
-            
-            
-            
-
-           
-
-            
-            
-
-                
-            
-
-
-
-        }
+        
 
         public void Days()
         {

@@ -14,13 +14,14 @@ namespace LemonadeStand
             //Player1.GetRecipe();
 
             Weather Day = new Weather();
-            Day.GetTemperature();
-            Day.WeatherCondition();
+            Day.GetWeeklyForecast();
 
-            
-            
-            
-            
+
+
+
+
+
+
 
         }
     }
