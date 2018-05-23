@@ -10,16 +10,20 @@ namespace LemonadeStand
     {
         public int NumberOfDays;
         public double Price;
+        public int NumberofLemons;
+        public int CupsOfSugar;
+        public int NumberOfIceCubes;
+        Day Day1 = new Day();
         
         public Game()
         {
-            Console.WriteLine("How many days do you want to play?");
-            Console.ReadLine();
+            
+            
         }
 
-        public void DetermineSales()
+        public void StartGame()
         {
-            
+            Day1.CheckWeatherForecast();
         }
     }
 }

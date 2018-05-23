@@ -6,18 +6,26 @@ using System.Threading.Tasks;
 
 namespace LemonadeStand
 {
-    class Day
+    public class Day
     {
+        public Weather Weather;
+
+
 
         
         public Day()
         {
-
+            
         }
 
         public void SeeDemand()
         {
             
+        }
+
+        public void CheckWeatherForecast()
+        {
+            Weather.GetWeeklyForecast();
         }
     }
 }
