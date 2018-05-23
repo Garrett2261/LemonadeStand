@@ -14,7 +14,10 @@ namespace LemonadeStand
             //Player Player1 = new Player(7, .25, 4, 4, 4);
             //Player1.GetRecipe();
 
-           
+
+            Weather Weather = new Weather();
+            Weather.GetDailyForecast();
+
 
             Game NewGame = new Game();
             NewGame.StartGame();

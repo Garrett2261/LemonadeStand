@@ -8,14 +8,16 @@ namespace LemonadeStand
 {
     public class Day
     {
-        public Weather Weather;
+        Weather Weather = new Weather();
+
+
 
 
 
         
         public Day()
         {
-            
+            Weather Weather = new Weather();
         }
 
         public void SeeDemand()
