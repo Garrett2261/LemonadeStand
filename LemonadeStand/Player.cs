@@ -24,7 +24,13 @@ namespace LemonadeStand
 
         public void GetRecipe()
         {
-            Console.Write("How many lemons do you want to use in your recipe?");
+            Console.WriteLine("How many lemons do you want to use in your recipe?");
+            Console.ReadLine();
+
+            Console.WriteLine("How many cups of sugar do you want to use in your recipe?");
+            Console.ReadLine();
+
+            Console.WriteLine("How may ice cubes do you want to include in your recipe?");
             Console.ReadLine();
 
             

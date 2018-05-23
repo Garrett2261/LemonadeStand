@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace LemonadeStand
 {
-    class Weather
+    public class Weather
     {
         public Random Temperature = new Random();
         public Random WeatherType = new Random();
@@ -37,6 +37,8 @@ namespace LemonadeStand
 
             int Index = WeatherType.Next(Condition.Count);
             string Element = Condition.ElementAt(Index);
+
+            List<string> DayOfTheWeek = new List<string>();
 
 
 
@@ -88,6 +90,8 @@ namespace LemonadeStand
 
             
 
+            
+
            
             
 
@@ -111,9 +115,9 @@ namespace LemonadeStand
 
         
 
-        public void Days()
+        public void GetCertainDayForecast()
         {
-
+            List<string> DayOfTheWeek = new List<string>();
         }
 
 
