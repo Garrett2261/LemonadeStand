@@ -11,9 +11,10 @@ namespace LemonadeStand
         public int NumberOfDays;
         public double Price;
         
-        public Game(int NumberOfDays)
+        public Game()
         {
-            this.NumberOfDays = NumberOfDays;
+            Console.WriteLine("How many days do you want to play?");
+            Console.ReadLine();
         }
 
         public void DetermineSales()
