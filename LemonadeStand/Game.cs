@@ -11,9 +11,9 @@ namespace LemonadeStand
         public int NumberOfDays;
         public double Price;
         
-        public Game()
+        public Game(int NumberOfDays)
         {
-            
+            this.NumberOfDays = NumberOfDays;
         }
 
         public void DetermineSales()
