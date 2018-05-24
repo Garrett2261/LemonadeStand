@@ -15,9 +15,14 @@ namespace LemonadeStand
         public int NumberOfIceCubes;
         Day Day1 = new Day();
         
+        
         public Game()
         {
-            
+            Player Player = new Player();
+            Weather Weather = new Weather();
+            Store Store = new Store();
+            Day Day = new Day();
+
             
         }
 
