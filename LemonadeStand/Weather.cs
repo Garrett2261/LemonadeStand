@@ -128,7 +128,7 @@ namespace LemonadeStand
             int Index = WeatherType.Next(Condition.Count);
             string Element = Condition.ElementAt(Index);
 
-            for (int i = 0; i < 2; ++i)
+            for (int i = 0; i < 1; ++i)
             {
                 if ((WeatherType.Next(1, 4)) == 1)
                 {
@@ -165,6 +165,32 @@ namespace LemonadeStand
                     Console.ReadLine();
                 }
             }
+        }
+
+        public void DetermineWhichForecastYouWant()
+        {
+            Console.WriteLine("Would you like to check the weather for the week? Or the weather for the current day?");
+            string input = Console.ReadLine();
+
+            switch (input)
+            {
+                case "week":
+                    GetWeeklyForecast();
+                    break;
+                case "day":
+                    GetDailyForecast();
+                    break;
+                default:
+                    Console.WriteLine("You can only check the weather forecast for the 'week' or for they 'day'. Please try again.");
+                    Console.ReadLine();
+                    DetermineWhichForecastYouWant();
+                    break;
+                    
+                
+            }
+            
+
+            
         }
 
 
