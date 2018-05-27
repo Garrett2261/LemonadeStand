@@ -18,7 +18,7 @@ namespace LemonadeStand
         public Day()
         {
             Weather Weather = new Weather();
-            Weather.DetermineWhichForecastYouWant();
+            
         }
 
         public void SeeDemand()
@@ -28,7 +28,8 @@ namespace LemonadeStand
 
         public void CheckWeatherForecast()
         {
-            Weather.DetermineWhichForecastYouWant();
+            Weather.GetWeeklyForecast();
+            Weather.GetDailyForecast();
         }
     }
 }

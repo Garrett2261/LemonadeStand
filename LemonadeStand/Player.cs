@@ -12,28 +12,23 @@ namespace LemonadeStand
         public int NumberOfLemons;
         public int CupsOfSugar;
         public int NumberOfIceCubes;
-        public Player (int NumberOfDays, double Price, int NumberOfLemons, int CupsOfSugar, int NumberOfIceCubes)
+        Inventory Inventory = new Inventory();
+        public Player ()
         {
-            this.NumberOfDays = NumberOfDays;
-            this.NumberOfLemons = NumberOfLemons;
-            this.CupsOfSugar = CupsOfSugar;
-            this.NumberOfIceCubes = NumberOfIceCubes;
-
+            Inventory Inventory = new Inventory();
 
         }
 
         public void GetRecipe()
         {
-            Console.WriteLine("How many lemons do you want to use in your recipe?");
-            Console.ReadLine();
-
-            Console.WriteLine("How many cups of sugar do you want to use in your recipe?");
-            Console.ReadLine();
-
-            Console.WriteLine("How may ice cubes do you want to include in your recipe?");
-            Console.ReadLine();
+            Inventory.CheckLemons();
 
             
+
+        }
+
+        public void SellLemonade()
+        {
 
         }
         

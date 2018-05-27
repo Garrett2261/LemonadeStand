@@ -8,12 +8,9 @@ namespace LemonadeStand
 {
     public class Game
     {
-        public int NumberOfDays;
-        public double Price;
-        public int NumberofLemons;
-        public int CupsOfSugar;
-        public int NumberOfIceCubes;
-        Day Day1 = new Day();
+        Player Player = new Player();
+        Day Day = new Day();
+        
         
         
         public Game()
@@ -28,7 +25,9 @@ namespace LemonadeStand
 
         public void StartGame()
         {
-            Day1.CheckWeatherForecast();
+            Day.CheckWeatherForecast();
+
+
         }
     }
 }

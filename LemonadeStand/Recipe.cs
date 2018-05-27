@@ -6,15 +6,9 @@ using System.Threading.Tasks;
 
 namespace LemonadeStand
 {
-    class Inventory
+    class Recipe
     {
-        
-        public Inventory() 
-        {
-
-        }
-
-        public void CheckLemons()
+        public Recipe()
         {
 
         }
