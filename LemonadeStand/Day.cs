@@ -9,6 +9,8 @@ namespace LemonadeStand
     public class Day
     {
         Weather Weather = new Weather();
+        public double AmountEarnedOnDay;
+        public double ProfitEarnedForDay;
 
 
 

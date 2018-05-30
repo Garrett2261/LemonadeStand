@@ -11,6 +11,9 @@ namespace LemonadeStand
     {
         public Random Temperature = new Random();
         public Random WeatherType = new Random();
+
+        public string WeatherCondition;
+        public int Degrees;
         
         
         
@@ -24,7 +27,7 @@ namespace LemonadeStand
 
         }
 
-        public void GetWeatherCondition()
+        public string GetWeatherCondition()
         {
             
 
@@ -50,7 +53,8 @@ namespace LemonadeStand
                 {
                     
                     Console.Write("Sunny");
-                    Console.ReadLine();
+                    WeatherCondition = "Sunny";
+                    return WeatherCondition;
                     
                 }
 
@@ -58,7 +62,8 @@ namespace LemonadeStand
                 {
                     
                     Console.Write("Rainy");
-                    Console.ReadLine();
+                    WeatherCondition = "Rainy";
+                    return WeatherCondition;
                     
                 }
 
@@ -66,7 +71,8 @@ namespace LemonadeStand
                 {
                     
                     Console.Write("Partly Cloudy");
-                    Console.ReadLine();
+                    WeatherCondition = "Partly Cloudy";
+                    return WeatherCondition;
                     
                 }
 
@@ -74,18 +80,17 @@ namespace LemonadeStand
                 {
                     
                     Console.Write("Overcast");
-                    Console.ReadLine();
+                    WeatherCondition = "Overcast";
+                    return WeatherCondition;
                     
                 }
 
-                else
-                {
-                    
-                    Console.Write(Element);
-                    Console.ReadLine();
-                    
-                }
+                
             }
+
+            Console.Write(Element);
+            WeatherCondition = Element;
+            return Element;
 
 
             
@@ -100,10 +105,10 @@ namespace LemonadeStand
                 
             }
 
-        public void GetTemperature()
+        public int GetTemperature()
         {
-             Console.Write(Temperature.Next(50, 100));
-            Console.ReadLine();
+            Degrees = Temperature.Next(50, 100);
+            return Degrees;
             
         }
 
