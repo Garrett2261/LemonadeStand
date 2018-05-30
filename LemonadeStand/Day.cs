@@ -28,8 +28,19 @@ namespace LemonadeStand
 
         public void CheckWeatherForecast()
         {
-            Weather.GetWeeklyForecast();
-            Weather.GetDailyForecast();
+            for(int i = 0; i < 7; ++i)
+            {
+                Weather.GetWeatherCondition();
+                Weather.GetTemperature();
+            }
+            
+        }
+
+        public void CheckTodaysWeather()
+        {
+            Weather.GetWeatherCondition();
+            Weather.GetTemperature();
+            
         }
     }
 }

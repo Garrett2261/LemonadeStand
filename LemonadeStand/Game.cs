@@ -10,6 +10,7 @@ namespace LemonadeStand
     {
         Player Player = new Player();
         Day Day = new Day();
+        Weather Weather = new Weather();
         
         
         
@@ -25,7 +26,9 @@ namespace LemonadeStand
 
         public void StartGame()
         {
+            Day.CheckTodaysWeather();
             Day.CheckWeatherForecast();
+
 
 
         }
