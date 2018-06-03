@@ -1,0 +1,17 @@
+C:\Users\Garrett\Desktop\C# Projects\LemonadeStand\LemonadeTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\Users\Garrett\Desktop\C# Projects\LemonadeStand\LemonadeTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+C:\Users\Garrett\Desktop\C# Projects\LemonadeStand\LemonadeTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\Users\Garrett\Desktop\C# Projects\LemonadeStand\LemonadeTest\bin\Debug\LemonadeTest.dll
+C:\Users\Garrett\Desktop\C# Projects\LemonadeStand\LemonadeTest\bin\Debug\LemonadeTest.pdb
+C:\Users\Garrett\Desktop\C# Projects\LemonadeStand\LemonadeTest\bin\Debug\LemonadeStand.exe
+C:\Users\Garrett\Desktop\C# Projects\LemonadeStand\LemonadeTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
+C:\Users\Garrett\Desktop\C# Projects\LemonadeStand\LemonadeTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
+C:\Users\Garrett\Desktop\C# Projects\LemonadeStand\LemonadeTest\bin\Debug\LemonadeStand.pdb
+C:\Users\Garrett\Desktop\C# Projects\LemonadeStand\LemonadeTest\bin\Debug\LemonadeStand.exe.config
+C:\Users\Garrett\Desktop\C# Projects\LemonadeStand\LemonadeTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
+C:\Users\Garrett\Desktop\C# Projects\LemonadeStand\LemonadeTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
+C:\Users\Garrett\Desktop\C# Projects\LemonadeStand\LemonadeTest\obj\Debug\LemonadeTest.csprojAssemblyReference.cache
+C:\Users\Garrett\Desktop\C# Projects\LemonadeStand\LemonadeTest\obj\Debug\LemonadeTest.csproj.CoreCompileInputs.cache
+C:\Users\Garrett\Desktop\C# Projects\LemonadeStand\LemonadeTest\obj\Debug\LemonadeTest.csproj.CopyComplete
+C:\Users\Garrett\Desktop\C# Projects\LemonadeStand\LemonadeTest\obj\Debug\LemonadeTest.dll
+C:\Users\Garrett\Desktop\C# Projects\LemonadeStand\LemonadeTest\obj\Debug\LemonadeTest.pdb

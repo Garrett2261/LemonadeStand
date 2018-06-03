@@ -6,13 +6,18 @@ using System.Threading.Tasks;
 
 namespace LemonadeStand
 {
-    class Store
+    public class Store
     {
         public double StartMoney = 20.00;
         public double RemainingMoney;
         public int LemonsBought;
         public int CupsOfSugarBought;
         public int NumberOfIceBought;
+        public double PriceOfTenLemons = 0.50;
+        public double PriceOfTwentyFiveLemons = 1.75;
+        public double PriceOfFiftyLemons = 3.20;
+        
+        
         public Store()
         {
 
@@ -24,8 +29,9 @@ namespace LemonadeStand
             Console.WriteLine("Please choose lemons, sugar, or ice.");
         }
 
-        public void BuyLemons()
+        public int BuyLemons()
         {
+            
             
             Console.WriteLine("You can either buy '10' lemons for 0.50, '25' lemons for 1.75, or '50' lemons for 3.20");
             string AmountWanted = Console.ReadLine();
@@ -36,18 +42,18 @@ namespace LemonadeStand
             switch (AmountWanted)
             {
                 case "10":
-                    LemonsBought = 10;
-                    break;
+                    return LemonsBought = 10;
+                    
 
                 case "25":
-                    LemonsBought = 25;
-                    break;
+                    return LemonsBought = 25;
+                    
                 case "50":
-                    LemonsBought = 50;
-                    break;
+                    return LemonsBought = 50;
+                    
                 default:
                     Console.WriteLine("You can only purchase '10', '25', or '50' lemons at a time. Please try again.");
-                    break;
+                    return BuyLemons();
                     
             }
             
@@ -55,10 +61,55 @@ namespace LemonadeStand
             
             }
 
-        public void LemonCost()
+        public double LemonCost()
         {
+            double totalCost;
+            BuyLemons();
+            if(LemonsBought == 10)
+            {
+                totalCost = LemonsBought * PriceOfTenLemons;
+                return totalCost;
+            }
+            else if (LemonsBought == 25)
+            {
+                totalCost = LemonsBought * PriceOfTwentyFiveLemons;
+                return totalCost;
+            }
+            else if(LemonsBought == 50)
+            {
+                totalCost = LemonsBought * PriceOfFiftyLemons;
+                return totalCost;
+            }
+
+            return LemonCost();
+
+        
+            
+
+
             
         }
+
+        public void GettingMoreLemons()
+        {
+            Console.WriteLine("Would you like to purchase more lemons?");
+            string answer = Console.ReadLine();
+
+            switch (answer)
+            {
+                
+
+
+            }
+        }
+
+
+
+        
+
+        
+
+        
         }
     }
 

@@ -11,6 +11,8 @@ namespace LemonadeStand
         Weather Weather = new Weather();
         public double AmountEarnedOnDay;
         public double ProfitEarnedForDay;
+        Random Demand = new Random();
+        public int ChanceOfBuying;
 
 
 
@@ -26,14 +28,17 @@ namespace LemonadeStand
         public void SeeDemand()
         {
             
+
+
         }
 
         public void CheckWeatherForecast()
         {
             for(int i = 0; i < 7; ++i)
             {
-                Weather.GetWeatherCondition();
-                Weather.GetTemperature();
+                Console.Write(Weather.GetWeatherCondition());
+                Console.Write(Weather.GetTemperature());
+                Console.ReadLine();
             }
             
         }
@@ -42,6 +47,12 @@ namespace LemonadeStand
         {
             Weather.GetWeatherCondition();
             Weather.GetTemperature();
+
+            
+            
+            
+            
+            
             
         }
     }
