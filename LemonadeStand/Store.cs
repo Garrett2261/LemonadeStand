@@ -67,21 +67,38 @@ namespace LemonadeStand
             BuyLemons();
             if(LemonsBought == 10)
             {
-                totalCost = LemonsBought * PriceOfTenLemons;
-                return totalCost;
+                totalCost = PriceOfTenLemons;
+                Console.WriteLine("Your total is" + " " + "$" + totalCost);
+                Console.ReadLine();
+                RemainingMoney = StartMoney - totalCost;
+                Console.WriteLine("You now have" + " " + "$" + RemainingMoney + " " + "left.");
+                Console.ReadLine();
+                return RemainingMoney;
             }
             else if (LemonsBought == 25)
             {
-                totalCost = LemonsBought * PriceOfTwentyFiveLemons;
+                totalCost = PriceOfTwentyFiveLemons;
+                Console.WriteLine("Your total is" + " " + "$" + totalCost);
+                Console.ReadLine();
+                RemainingMoney = StartMoney - totalCost;
+                Console.WriteLine("You now have" + " " + "$" + RemainingMoney + " " + "left.");
+                Console.ReadLine();
                 return totalCost;
             }
             else if(LemonsBought == 50)
             {
-                totalCost = LemonsBought * PriceOfFiftyLemons;
+                totalCost = PriceOfFiftyLemons;
+                Console.WriteLine("Your total is" + " " + "$" + totalCost);
+                Console.ReadLine();
+                RemainingMoney = StartMoney - totalCost;
+                Console.WriteLine("You now have" + " " + "$" + RemainingMoney + " " + "left.");
+                Console.ReadLine();
                 return totalCost;
             }
 
             return LemonCost();
+
+            
 
         
             
