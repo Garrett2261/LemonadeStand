@@ -29,8 +29,7 @@ namespace LemonadeStand
 
         public string GetWeatherCondition()
         {
-            
-
+        
             List<string> Condition = new List<string>
             {
                 "Sunny",
@@ -52,7 +51,7 @@ namespace LemonadeStand
                 if(WeatherType.Next(1, 4) == 1)
                 {
                     
-                    Console.Write("Sunny");
+                    
                     WeatherCondition = "Sunny";
                     return WeatherCondition;
                     
@@ -61,7 +60,7 @@ namespace LemonadeStand
                 else if(WeatherType.Next(1, 4) == 2)
                 {
                     
-                    Console.Write("Rainy");
+                    
                     WeatherCondition = "Rainy";
                     return WeatherCondition;
                     
@@ -70,7 +69,7 @@ namespace LemonadeStand
                 else if(WeatherType.Next(1, 4) == 3)
                 {
                     
-                    Console.Write("Partly Cloudy");
+                    
                     WeatherCondition = "Partly Cloudy";
                     return WeatherCondition;
                     
@@ -79,7 +78,7 @@ namespace LemonadeStand
                 else if(WeatherType.Next(1, 4) == 4)
                 {
                     
-                    Console.Write("Overcast");
+                    
                     WeatherCondition = "Overcast";
                     return WeatherCondition;
                     
@@ -88,7 +87,7 @@ namespace LemonadeStand
                 
             }
 
-            Console.Write(Element);
+            
             WeatherCondition = Element;
             return Element;
 
@@ -108,6 +107,7 @@ namespace LemonadeStand
         public int GetTemperature()
         {
             Degrees = Temperature.Next(50, 100);
+            
             return Degrees;
             
         }

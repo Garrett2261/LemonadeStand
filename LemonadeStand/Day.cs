@@ -32,12 +32,17 @@ namespace LemonadeStand
 
         }
 
+
         public void CheckWeatherForecast()
         {
-            for(int i = 0; i < 7; ++i)
+            List<string> WeatherForecast = new List<string>();
+            for (int i = 0; i < 7; ++i)
             {
-                Console.Write(Weather.GetWeatherCondition());
-                Console.Write(Weather.GetTemperature());
+                
+                var dayWeather = Weather.GetWeatherCondition();
+                var dayTemperature = Weather.GetTemperature();
+                WeatherForecast.Add((dayWeather + ' ' + dayTemperature.ToString()));
+                Console.WriteLine(dayWeather + ' ' + dayTemperature);
                 Console.ReadLine();
             }
             
@@ -45,8 +50,10 @@ namespace LemonadeStand
 
         public void CheckTodaysWeather()
         {
-            Weather.GetWeatherCondition();
-            Weather.GetTemperature();
+            var dayWeather = Weather.GetWeatherCondition();
+            var dayTemperature = Weather.GetTemperature();
+            Console.WriteLine(dayWeather + ' ' + dayTemperature);
+            Console.ReadLine();
 
             
             
