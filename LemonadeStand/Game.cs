@@ -27,9 +27,11 @@ namespace LemonadeStand
 
         public void StartGame()
         {
+            Player.SetPrice();
             Console.WriteLine("Welcome to Lemondade Stand! The goal of the game is to make as much money as you can in one week selling lemonade. You start off with $20.00 and you will need ingredients for your lemonade. These ingredients can be found in the store where you can purchase them. After every day you will get a report on how much of a profit you made for that day. If you go bankrupt, you lose the game. Good luck!");
             Day.CheckWeatherForecast();
             Day.CheckTodaysWeather();
+            Day.SeeDemand();
             Store.LemonCost();
             
 

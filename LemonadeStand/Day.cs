@@ -9,33 +9,38 @@ namespace LemonadeStand
     public class Day
     {
         Weather Weather = new Weather();
-        public double AmountEarnedOnDay;
-        public double ProfitEarnedForDay;
-        Random Demand = new Random();
-        public int ChanceOfBuying;
+        public double amountEarnedOnDay;
+        public double profitEarnedForDay;
+        public Random Demand = new Random();
+        public bool chanceOfBuying;
+        public string weatherCondition;
+        public int temperature;
+        public int chance;
+        List<string> WeatherForecast = new List<string>();
 
 
 
 
 
-        
+
+
         public Day()
         {
             Weather Weather = new Weather();
-            
+            Customer Customer = new Customer();
+            amountEarnedOnDay = 0;
         }
 
-        public void SeeDemand()
+        
+
+        public void CheckPurchases()
         {
-            
-
 
         }
-
 
         public void CheckWeatherForecast()
         {
-            List<string> WeatherForecast = new List<string>();
+            
             for (int i = 0; i < 7; ++i)
             {
                 
@@ -54,6 +59,9 @@ namespace LemonadeStand
             var dayTemperature = Weather.GetTemperature();
             Console.WriteLine(dayWeather + ' ' + dayTemperature);
             Console.ReadLine();
+            weatherCondition = dayWeather;
+            temperature = dayTemperature;
+            
 
             
             
@@ -62,5 +70,7 @@ namespace LemonadeStand
             
             
         }
+
+        
     }
 }
