@@ -8,6 +8,7 @@ namespace LemonadeStand
 {
     public class Player
     {
+        public double MoneyMade;
         public int NumberOfDays;
         public int NumberOfLemons;
         public int CupsOfSugar;
@@ -31,10 +32,11 @@ namespace LemonadeStand
 
         }
 
-        public void SellLemonade()
+        public void CalculateTotal()
         {
-            Day Day = new Day();
             
+            MoneyMade = 0;
+
         }
         
         public double SetPrice()

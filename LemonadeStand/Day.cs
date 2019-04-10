@@ -12,10 +12,8 @@ namespace LemonadeStand
         public double amountEarnedOnDay;
         public double profitEarnedForDay;
         public Random Demand = new Random();
-        public bool chanceOfBuying;
         public string weatherCondition;
         public int temperature;
-        public int chance;
         List<string> WeatherForecast = new List<string>();
 
 
@@ -27,16 +25,16 @@ namespace LemonadeStand
         public Day()
         {
             Weather Weather = new Weather();
-            Customer Customer = new Customer();
+            
             amountEarnedOnDay = 0;
         }
 
-        
-
-        public void CheckPurchases()
+        public void SeeDemand()
         {
 
         }
+
+        
 
         public void CheckWeatherForecast()
         {
