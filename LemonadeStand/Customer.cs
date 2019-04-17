@@ -8,6 +8,8 @@ namespace LemonadeStand
 {
     public class Customer
     {
+        
+        
         public double cupsOfLemonade;
         public double customerTotal;
         public int spendingLimit;
@@ -15,6 +17,7 @@ namespace LemonadeStand
         public Random Random = new Random();
         Weather Weather = new Weather();
         Player Player = new Player();
+        
         public Customer()
         {
             this.spendingLimit = Random.Next(0,5);

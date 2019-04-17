@@ -14,7 +14,7 @@ namespace LemonadeStand
         public Random Demand = new Random();
         public string weatherCondition;
         public int temperature;
-        public double customersForDay;
+        public int customersForDay;
         List<string> WeatherForecast = new List<string>();
 
 
@@ -29,9 +29,73 @@ namespace LemonadeStand
             this.temperature = Weather.GetTemperature();
         }
 
-        public void SeeDemand()
+        public int CountCustomers()
         {
-           
+           if(weatherCondition == "Sunny")
+            {
+                if((temperature >= 75) && (temperature <= 100))
+                {
+                    customersForDay = Demand.Next(40,50);
+                }
+                else if((temperature >= 50) && (temperature <= 75))
+                {
+                    customersForDay = Demand.Next(25,40);
+                }
+                else
+                {
+                    customersForDay = 25;
+                }
+            }
+           else if(weatherCondition == "Rainy")
+            {
+                if((temperature >= 75) && (temperature <= 100))
+                {
+                    customersForDay = Demand.Next(15, 25);
+                }
+                else if((temperature >= 50) && (temperature <= 75))
+                {
+                    customersForDay = Demand.Next(5, 15);
+                }
+                else
+                {
+                    customersForDay = 5;
+                }
+            }
+           else if(weatherCondition == "Partly Cloudy")
+            {
+                if((temperature >= 75) && (temperature <= 100))
+                {
+                    customersForDay = Demand.Next(35, 45);
+                }
+                else if((temperature >= 50) && (temperature <= 75))
+                {
+                    customersForDay = Demand.Next(20, 35);
+                }
+                else
+                {
+                    customersForDay = 20;
+                }
+            }
+           else if(weatherCondition == "Overcast")
+            {
+                if((temperature >= 75) && (temperature <= 100))
+                {
+                    customersForDay = Demand.Next(5, 15);
+                }
+                else if((temperature >= 50) && (temperature <= 75))
+                {
+                    customersForDay = Demand.Next(1, 5);
+                }
+                else
+                {
+                    customersForDay = 1;
+                }
+            }
+            else
+            {
+                customersForDay = Demand.Next(0, 50);
+            }
+            return customersForDay;
         }
 
         
