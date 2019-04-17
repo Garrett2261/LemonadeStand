@@ -8,7 +8,7 @@ namespace LemonadeStand
 {
     class Inventory
     {
-        public int Lemon = 0;
+        public int lemon = 0;
         
         public Inventory() 
         {

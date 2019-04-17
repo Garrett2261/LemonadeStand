@@ -10,31 +10,33 @@ namespace LemonadeStand
     {
         public double cupsOfLemonade;
         public double customerTotal;
-        public int maxMoneyToPay;
-        public double maxCostOfLemonade;
+        public int spendingLimit;
+        public double costLimit;
         public Random Random = new Random();
         Weather Weather = new Weather();
         Player Player = new Player();
         public Customer()
         {
-            this.maxMoneyToPay = Random.Next(0,5);
-            this.maxCostOfLemonade = Random.NextDouble();
+            this.spendingLimit = Random.Next(0,5);
+            this.costLimit = Random.NextDouble();
         }
 
         public double BuyLemonade(double price /*string weather, int temperature*/)
         {
             //price = Player.SetPrice();
-            if(price > maxCostOfLemonade)
+            if(price > costLimit)
             {
                 cupsOfLemonade = Random.Next(0, 1);
+                Console.WriteLine("The customer bought" + ' ' + cupsOfLemonade + ' ' + "cups of lemonade.");
                 
             }
             //Include the max cost of lemonade too in this function.
-            else if(price <= maxCostOfLemonade)
+            else if(price <= costLimit)
             {
                 //weather = Weather.GetWeatherCondition();
                 //temperature = Weather.GetTemperature();
-                cupsOfLemonade = Math.Floor(maxMoneyToPay / price);
+                cupsOfLemonade = Math.Floor(spendingLimit / price);
+                Console.WriteLine("The customer bought" + ' ' + cupsOfLemonade + ' ' + "cups of lemonade.");
                 
             }
             return cupsOfLemonade;

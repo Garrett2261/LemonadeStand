@@ -12,8 +12,8 @@ namespace LemonadeStand
         public Random Temperature = new Random();
         public Random WeatherType = new Random();
 
-        public string WeatherCondition;
-        public int Degrees;
+        public string weatherCondition;
+        public int degrees;
         
         
         
@@ -52,8 +52,8 @@ namespace LemonadeStand
                 {
                     
                     
-                    WeatherCondition = "Sunny";
-                    return WeatherCondition;
+                    weatherCondition = "Sunny";
+                    return weatherCondition;
                     
                 }
 
@@ -61,8 +61,8 @@ namespace LemonadeStand
                 {
                     
                     
-                    WeatherCondition = "Rainy";
-                    return WeatherCondition;
+                    weatherCondition = "Rainy";
+                    return weatherCondition;
                     
                 }
 
@@ -70,8 +70,8 @@ namespace LemonadeStand
                 {
                     
                     
-                    WeatherCondition = "Partly Cloudy";
-                    return WeatherCondition;
+                    weatherCondition = "Partly Cloudy";
+                    return weatherCondition;
                     
                 }
 
@@ -79,8 +79,8 @@ namespace LemonadeStand
                 {
                     
                     
-                    WeatherCondition = "Overcast";
-                    return WeatherCondition;
+                    weatherCondition = "Overcast";
+                    return weatherCondition;
                     
                 }
 
@@ -88,7 +88,7 @@ namespace LemonadeStand
             }
 
             
-            WeatherCondition = Element;
+            weatherCondition = Element;
             return Element;
 
 
@@ -106,9 +106,9 @@ namespace LemonadeStand
 
         public int GetTemperature()
         {
-            Degrees = Temperature.Next(50, 100);
+            degrees = Temperature.Next(50, 100);
             
-            return Degrees;
+            return degrees;
             
         }
 
