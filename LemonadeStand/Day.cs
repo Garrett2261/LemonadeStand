@@ -32,7 +32,7 @@ namespace LemonadeStand
 
         public void SeeDemand()
         {
-            
+           
         }
 
         
