@@ -8,12 +8,15 @@ namespace LemonadeStand
 {
     public class Player
     {
+        public double startingMoney;
         public double MoneyMade;
         public int NumberOfDays;
         public int NumberOfLemons;
         public int CupsOfSugar;
         public int NumberOfIceCubes;
         public double costOfLemonade;
+        public double totalCost;
+        public double totalCups;
         Inventory Inventory = new Inventory();
         Day Day = new Day();
         public Player ()
@@ -32,10 +35,24 @@ namespace LemonadeStand
 
         }
 
-        public void CalculateTotal()
+        public double CalculateTotal(double price)
         {
+            price = costOfLemonade;
+            Customer Customer = new Customer();
+            totalCups = Customer.BuyLemonade(price);
+            startingMoney = 0;
+            totalCost = totalCups * price;
+            if(MoneyMade > 0)
+            {
+                MoneyMade += totalCost;
+            }
+            else
+            {
+                MoneyMade = totalCost;
+            }
+            return MoneyMade;
             
-            MoneyMade = 0;
+            
 
         }
         

@@ -13,7 +13,7 @@ namespace LemonadeStand
         public double profitEarnedForDay;
         public Random Demand = new Random();
         public string weatherCondition;
-        public int temperature;
+        public int temp;
         List<string> WeatherForecast = new List<string>();
 
 
@@ -22,16 +22,17 @@ namespace LemonadeStand
 
 
 
-        public Day()
+        public Day(/*string weather, int temperature*/)
         {
-            Weather Weather = new Weather();
+            //this.weatherCondition = weather;
+            //this.temp = temperature;
             
-            amountEarnedOnDay = 0;
+            //amountEarnedOnDay = 0;
         }
 
         public void SeeDemand()
         {
-
+            
         }
 
         
@@ -58,7 +59,7 @@ namespace LemonadeStand
             Console.WriteLine(dayWeather + ' ' + dayTemperature);
             Console.ReadLine();
             weatherCondition = dayWeather;
-            temperature = dayTemperature;
+            temp = dayTemperature;
             
 
             

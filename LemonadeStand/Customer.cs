@@ -8,35 +8,42 @@ namespace LemonadeStand
 {
     public class Customer
     {
-        
+        public double cupsOfLemonade;
         public double customerTotal;
         public int maxMoneyToPay;
+        public double maxCostOfLemonade;
         public Random Random = new Random();
-        public Customer(int maxMoneyToPay)
+        Weather Weather = new Weather();
+        Player Player = new Player();
+        public Customer()
         {
-            Random Rand = new Random();
-            maxMoneyToPay = Rand.Next(0,5);
+            this.maxMoneyToPay = Random.Next(0,5);
+            this.maxCostOfLemonade = Random.NextDouble();
         }
 
-        public double BuyLemonade(double price)
+        public double BuyLemonade(double price /*string weather, int temperature*/)
         {
-            maxMoneyToPay = Random.Next(0, 5);
-            if(price > maxMoneyToPay)
+            //price = Player.SetPrice();
+            if(price > maxCostOfLemonade)
             {
-                Console.WriteLine("The customer didn't buy any lemonade.");
-                customerTotal = 0;
-                return customerTotal;
+                cupsOfLemonade = Random.Next(0, 1);
+                
             }
-            else if(price <= maxMoneyToPay)
+            //Include the max cost of lemonade too in this function.
+            else if(price <= maxCostOfLemonade)
             {
-                Console.WriteLine("The customer bought some lemonade");
-                customerTotal = Math.Floor(maxMoneyToPay / price) * price;
-                return customerTotal;
+                //weather = Weather.GetWeatherCondition();
+                //temperature = Weather.GetTemperature();
+                cupsOfLemonade = Math.Floor(maxMoneyToPay / price);
+                
             }
-            else
-            {
-                return 0;
-            }
+            return cupsOfLemonade;
+            
+
+
+            //return an int for the cupsOfLemonade variable and the number returned is based on factors such as the weather and price
+            //This will vary from customer to customer and also may depend on the amount of money 
+            //Or have a thing where depending on the price a certain number of cups will be bough
         }
 
 
