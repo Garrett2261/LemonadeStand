@@ -15,19 +15,23 @@ namespace LemonadeStand
         public int counter;
         public Random Rand = new Random();
         public double price;
+        public int numberOfDays;
 
         
         
         
         public Game()
         {
-            Player Player = new Player();
-            Weather Weather = new Weather();
-            Store Store = new Store();
-            Day Day = new Day();
+            this.numberOfDays = Player.SetLength();
+            //Player Player = new Player();
+            //Weather Weather = new Weather();
+            //Store Store = new Store();
+            //Day Day = new Day();
 
             
         }
+
+        
 
         public void StartGame()
         {
