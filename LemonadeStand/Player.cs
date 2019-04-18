@@ -64,5 +64,28 @@ namespace LemonadeStand
             costOfLemonade = cost * .01;
             return costOfLemonade;
         }
+
+        public int SetLength()
+        {
+            Console.WriteLine("How many days would you like to play for? Please enter '7', '14', or '21'.");
+            string gameLength = Console.ReadLine();
+
+            switch (gameLength)
+            {
+                case "7":
+                    numberOfDays = 7;
+                    return numberOfDays;
+                case "14":
+                    numberOfDays = 14;
+                    return numberOfDays;
+                case "21":
+                    numberOfDays = 21;
+                    return numberOfDays;
+                default:
+                    Console.WriteLine("You can only play for '7', '14', or '21' days. Please enter one of those and try again.");
+                    return SetLength();
+
+            }
+        }
     }
 }
