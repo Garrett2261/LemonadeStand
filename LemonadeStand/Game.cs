@@ -12,10 +12,12 @@ namespace LemonadeStand
         Day Day = new Day();
         Weather Weather = new Weather();
         Store Store = new Store();
+        Customer Customer = new Customer();
         public int counter;
         public Random Rand = new Random();
         public double price;
         public int numberOfDays;
+        
 
         
         
@@ -23,25 +25,21 @@ namespace LemonadeStand
         public Game()
         {
             this.numberOfDays = Player.SetLength();
-            //Player Player = new Player();
-            //Weather Weather = new Weather();
-            //Store Store = new Store();
-            //Day Day = new Day();
-
-            
         }
 
         
 
         public void StartGame()
         {
+            Day.CheckWeatherForecast();
+            Day.CheckTodaysWeather();
             counter = 0;
-            
-            while(counter < 26)
+            int customers = Day.CountCustomers();
+            while(counter < customers)
             {
                 if(counter > 0)
                 {
-                    var money = Player.CalculateTotal(price);
+                    var money = Player.CalculateTotal();
                     Console.WriteLine(money);
                     counter++;
 
@@ -50,7 +48,7 @@ namespace LemonadeStand
                 {
                     var cost = Player.SetPrice();
                     price = cost;
-                    var total = Player.CalculateTotal(cost);
+                    var total = Player.CalculateTotal();
                     Console.WriteLine(total);
                     counter++;
                 }
@@ -61,9 +59,8 @@ namespace LemonadeStand
 
             Console.WriteLine(Math.Floor(210.0/20));
             
-            Console.WriteLine("Welcome to Lemondade Stand! The goal of the game is to make as much money as you can in one week selling lemonade. You start off with $20.00 and you will need ingredients for your lemonade. These ingredients can be found in the store where you can purchase them. After every day you will get a report on how much of a profit you made for that day. If you go bankrupt, you lose the game. Good luck!");
-            Day.CheckWeatherForecast();
-            Day.CheckTodaysWeather();
+            
+            
             Store.LemonCost();
             
 

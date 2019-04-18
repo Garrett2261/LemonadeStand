@@ -35,21 +35,10 @@ namespace LemonadeStand
 
         }
 
-        public double CalculateTotal(double price)
+        public double CalculateTotal()
         {
-            price = costOfLemonade;
-            Customer Customer = new Customer();
-            totalCups = Customer.BuyLemonade(price);
-            startingMoney = 0;
-            totalCost = totalCups * price;
-            if(moneyMade > 0)
-            {
-                moneyMade += totalCost;
-            }
-            else
-            {
-                moneyMade = totalCost;
-            }
+            totalCups = Day.totalCupsForTheDay;
+            moneyMade = totalCups * costOfLemonade;
             return moneyMade;
             
             

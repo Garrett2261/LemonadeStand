@@ -8,23 +8,19 @@ namespace LemonadeStand
 {
     public class Customer
     {
-        
-        
         public double cupsOfLemonade;
-        public double customerTotal;
         public int spendingLimit;
         public double costLimit;
         public Random Random = new Random();
-        Weather Weather = new Weather();
         Player Player = new Player();
-        
+        Day Day = new Day();
         public Customer()
         {
             this.spendingLimit = Random.Next(0,5);
             this.costLimit = Random.NextDouble();
         }
 
-        public double BuyLemonade(double price /*string weather, int temperature*/)
+        public void BuyLemonade(double price /*string weather, int temperature*/)
         {
             //price = Player.SetPrice();
             if(price > costLimit)
@@ -42,7 +38,8 @@ namespace LemonadeStand
                 Console.WriteLine("The customer bought" + ' ' + cupsOfLemonade + ' ' + "cups of lemonade.");
                 
             }
-            return cupsOfLemonade;
+            Day.CheckTotalCupsBoughtForDay(cupsOfLemonade);
+            
             
 
 
