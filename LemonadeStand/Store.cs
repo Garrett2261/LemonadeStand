@@ -8,19 +8,33 @@ namespace LemonadeStand
 {
     public class Store
     {
-        public double StartMoney = 20.00;
-        public double RemainingMoney;
-        public int LemonsBought;
-        public int CupsOfSugarBought;
-        public int NumberOfIceBought;
-        public double PriceOfTenLemons = 0.50;
-        public double PriceOfTwentyFiveLemons = 1.75;
-        public double PriceOfFiftyLemons = 3.20;
+        public double startMoney = 20.00;
+        public double remainingMoney;
+        public int lemonsBought;
+        public int cupsOfSugarBought;
+        public int numberOfIceBought;
+        public double priceOfTenLemons;
+        public double priceOfTwentyFiveLemons;
+        public double priceOfFiftyLemons;
+        public double priceOfFiveCupsOfSugar;
+        public double priceOfFifteenCupsOfSugar;
+        public double priceOfThirtyCupsOfSugar;
+        public double priceOfFiftyIceCubes;
+        public double priceOfOneHundredSeventyFiveIceCubes;
+        public double priceOfThreeHundredFiftyIceCubes;
         
         
         public Store()
         {
-
+            this.priceOfTenLemons = 0.50;
+            this.priceOfTwentyFiveLemons = 1.30;
+            this.priceOfFiftyLemons = 2.10;
+            this.priceOfFiveCupsOfSugar = 0.90;
+            this.priceOfFifteenCupsOfSugar = 2.00;
+            this.priceOfThirtyCupsOfSugar = 4.75;
+            this.priceOfFiftyIceCubes = 0.60;
+            this.priceOfOneHundredSeventyFiveIceCubes = 2.05;
+            this.priceOfThreeHundredFiftyIceCubes = 3.95;
         }
 
         public void ExploreStore()
