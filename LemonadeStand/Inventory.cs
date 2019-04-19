@@ -8,6 +8,7 @@ namespace LemonadeStand
 {
     class Inventory
     {
+        Store Store = new Store();
         public int lemons;
         public int cupsOfSugar;
         public int iceCubes;
@@ -21,9 +22,42 @@ namespace LemonadeStand
             //substracted from the total currently in the inventory.
         }
 
-        public void CheckLemons()
+        public int AddLemonsFromStore(int lemonsBought)
         {
+            if(lemons >= 0)
+            {
+                lemons += lemonsBought;
+            }
+            else
+            {
+                lemons = lemonsBought;
+            }
+            return lemons;
+        }
 
+        public int CheckCupsOfSugarAfterStore(int cupsOfSugarBought)
+        {
+            if(cupsOfSugar >= 0)
+            {
+                cupsOfSugar += cupsOfSugarBought;
+            }
+            else
+            {
+                cupsOfSugar = cupsOfSugarBought;
+            }
+            return cupsOfSugar;
+        }
+
+        public int CheckIceCubesAfterStore(int iceCubesBought)
+        {
+            if(iceCubes >= 0)
+            {
+                iceCubes += iceCubesBought;
+            }
+            else
+            {
+
+            }
         }
     }
 }

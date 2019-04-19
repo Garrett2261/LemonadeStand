@@ -10,6 +10,7 @@ namespace LemonadeStand
     {
         public double startMoney = 20.00;
         public double remainingMoney;
+        public double totalCost;
         public int lemonsBought;
         public int cupsOfSugarBought;
         public int numberOfIceBought;
@@ -22,7 +23,7 @@ namespace LemonadeStand
         public double priceOfFiftyIceCubes;
         public double priceOfOneHundredSeventyFiveIceCubes;
         public double priceOfThreeHundredFiftyIceCubes;
-        
+        Inventory Inventory = new Inventory();
         
         public Store()
         {
@@ -47,23 +48,27 @@ namespace LemonadeStand
         {
             
             
-            Console.WriteLine("You can either buy '10' lemons for 0.50, '25' lemons for 1.75, or '50' lemons for 3.20");
-            string AmountWanted = Console.ReadLine();
+            Console.WriteLine("You can either buy '10' lemons for 0.50, '25' lemons for 1.30, or '50' lemons for 2.10.");
+            string amountWanted = Console.ReadLine();
             
             
             
 
-            switch (AmountWanted)
+            switch (amountWanted)
             {
                 case "10":
-                    return LemonsBought = 10;
+                    lemonsBought = 10;
+                    
+                    return lemonsBought;
                     
 
                 case "25":
-                    return LemonsBought = 25;
+                    lemonsBought = 25;
+                    return lemonsBought;
                     
                 case "50":
-                    return LemonsBought = 50;
+                    lemonsBought = 50;
+                    return lemonsBought;
                     
                 default:
                     Console.WriteLine("You can only purchase '10', '25', or '50' lemons at a time. Please try again.");
@@ -77,40 +82,26 @@ namespace LemonadeStand
 
         public double LemonCost()
         {
-            double totalCost;
-            BuyLemons();
-            if(LemonsBought == 10)
+            if(lemonsBought == 10)
             {
-                totalCost = PriceOfTenLemons;
+                totalCost = priceOfTenLemons;
                 Console.WriteLine("Your total is" + " " + "$" + totalCost);
                 Console.ReadLine();
-                RemainingMoney = StartMoney - totalCost;
-                Console.WriteLine("You now have" + " " + "$" + RemainingMoney + " " + "left.");
-                Console.ReadLine();
-                return RemainingMoney;
             }
-            else if (LemonsBought == 25)
+            else if (lemonsBought == 25)
             {
-                totalCost = PriceOfTwentyFiveLemons;
+                totalCost = priceOfTwentyFiveLemons;
                 Console.WriteLine("Your total is" + " " + "$" + totalCost);
                 Console.ReadLine();
-                RemainingMoney = StartMoney - totalCost;
-                Console.WriteLine("You now have" + " " + "$" + RemainingMoney + " " + "left.");
-                Console.ReadLine();
-                return totalCost;
             }
-            else if(LemonsBought == 50)
+            else if(lemonsBought == 50)
             {
-                totalCost = PriceOfFiftyLemons;
+                totalCost = priceOfFiftyLemons;
                 Console.WriteLine("Your total is" + " " + "$" + totalCost);
                 Console.ReadLine();
-                RemainingMoney = StartMoney - totalCost;
-                Console.WriteLine("You now have" + " " + "$" + RemainingMoney + " " + "left.");
-                Console.ReadLine();
-                return totalCost;
             }
 
-            return LemonCost();
+            return totalCost;
 
             
 

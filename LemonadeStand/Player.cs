@@ -21,14 +21,13 @@ namespace LemonadeStand
         Day Day = new Day();
         public Player ()
         {
-            Inventory Inventory = new Inventory();
-            Day Day = new Day();
+            
 
         }
 
         public void GetRecipe()
         {
-            Inventory.CheckLemons();
+            
 
 
             
