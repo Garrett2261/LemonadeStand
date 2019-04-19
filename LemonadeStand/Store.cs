@@ -10,7 +10,9 @@ namespace LemonadeStand
     {
         public double startMoney = 20.00;
         public double remainingMoney;
-        public double totalCost;
+        public double lemonCost;
+        public double sugarCost;
+        public double iceCubesCost;
         public int lemonsBought;
         public int cupsOfSugarBought;
         public int numberOfIceBought;
@@ -84,24 +86,24 @@ namespace LemonadeStand
         {
             if(lemonsBought == 10)
             {
-                totalCost = priceOfTenLemons;
-                Console.WriteLine("Your total is" + " " + "$" + totalCost);
+                lemonCost = priceOfTenLemons;
+                Console.WriteLine("Your total is" + " " + "$" + lemonCost);
                 Console.ReadLine();
             }
             else if (lemonsBought == 25)
             {
-                totalCost = priceOfTwentyFiveLemons;
-                Console.WriteLine("Your total is" + " " + "$" + totalCost);
+                lemonCost = priceOfTwentyFiveLemons;
+                Console.WriteLine("Your total is" + " " + "$" + lemonCost);
                 Console.ReadLine();
             }
             else if(lemonsBought == 50)
             {
-                totalCost = priceOfFiftyLemons;
-                Console.WriteLine("Your total is" + " " + "$" + totalCost);
+                lemonCost = priceOfFiftyLemons;
+                Console.WriteLine("Your total is" + " " + "$" + lemonCost);
                 Console.ReadLine();
             }
 
-            return totalCost;
+            return lemonCost;
 
             
 
