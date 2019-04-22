@@ -89,6 +89,7 @@ namespace LemonadeStand
             {
                 Console.WriteLine("You have successfully bought" + ' ' + lemonsBought + ' ' + "lemons.");
                 remainingMoney -= LemonCost(lemonsBought);
+                Console.WriteLine("You have" + ' ' + "$" + remainingMoney + "left.");
                 Inventory.AddLemonsFromStore(lemonsBought);
             }
             else if(remainingMoney < LemonCost(lemonsBought))
@@ -112,6 +113,7 @@ namespace LemonadeStand
             {
                 Console.WriteLine("You have successfully bought" + ' ' + lemonsBought + ' ' + "lemons.");
                 remainingMoney = (startMoney - LemonCost(lemonsBought));
+                Console.WriteLine("You have" + ' ' + "$" + remainingMoney + "left.");
                 Inventory.AddLemonsFromStore(lemonsBought);
             }
             return remainingMoney;
@@ -143,6 +145,7 @@ namespace LemonadeStand
             {
                 Console.WriteLine("You have successfully bought" + ' ' + cupsOfSugarBought + ' ' + "cups of sugar.");
                 remainingMoney -= SugarCost(cupsOfSugarBought);
+                Console.WriteLine("You have" + ' ' + "$" + remainingMoney + "left.");
                 Inventory.AddCupsOfSugarFromStore(cupsOfSugarBought);
             }
             else if(remainingMoney < SugarCost(cupsOfSugarBought))
@@ -166,6 +169,7 @@ namespace LemonadeStand
             {
                 Console.WriteLine("You have successfully bought" + ' ' + cupsOfSugarBought + ' ' + "cups of sugar.");
                 remainingMoney = (startMoney - SugarCost(cupsOfSugarBought));
+                Console.WriteLine("You have" + ' ' + "$" + remainingMoney + "left.");
                 Inventory.AddCupsOfSugarFromStore(cupsOfSugarBought);
             }
             return remainingMoney;
@@ -198,6 +202,7 @@ namespace LemonadeStand
             {
                 Console.WriteLine("You have successfully bought" + ' ' + numberOfIceCubesBought + ' ' + "ice cubes.");
                 remainingMoney -= IceCubeCost(numberOfIceCubesBought);
+                Console.WriteLine("You have" + ' ' + "$" + remainingMoney + "left.");
                 Inventory.AddIceCubesFromStore(numberOfIceCubesBought);
             }
             else if (remainingMoney < IceCubeCost(numberOfIceCubesBought))
@@ -221,6 +226,7 @@ namespace LemonadeStand
             {
                 Console.WriteLine("You have successfully bought" + ' ' + numberOfIceCubesBought + ' ' + "ice cubes.");
                 remainingMoney = (startMoney - IceCubeCost(numberOfIceCubesBought));
+                Console.WriteLine("You have" + ' ' + "$" + remainingMoney + "left.");
                 Inventory.AddIceCubesFromStore(numberOfIceCubesBought);
             }
             return remainingMoney;
