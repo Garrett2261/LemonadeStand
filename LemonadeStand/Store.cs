@@ -64,8 +64,21 @@ namespace LemonadeStand
             }
         }
         
+        public double GetRemainingMoney(double cost)
+        {
+            if(remainingMoney >= 0)
+            {
+                remainingMoney -= cost;
+            }
+            else
+            {
+                remainingMoney = startMoney - cost;
+            }
+            return remainingMoney;
 
-        public double BuyLemons()
+        }
+
+        public void BuyLemons()
         {
             Console.WriteLine("You can either buy '10' lemons for 0.50, '25' lemons for 1.30, or '50' lemons for 2.10. Or if you don't need any and or already have enough, you can enter 'menu' to go back to the Main Menu.");
             string amountWanted = Console.ReadLine();
@@ -91,7 +104,7 @@ namespace LemonadeStand
             if(remainingMoney >= LemonCost(lemonsBought))
             {
                 Console.WriteLine("You have successfully bought" + ' ' + lemonsBought + ' ' + "lemons.");
-                remainingMoney -= LemonCost(lemonsBought);
+                GetRemainingMoney(LemonCost(lemonsBought));
                 Console.WriteLine("You have" + ' ' + "$" + remainingMoney + "left.");
                 Inventory.AddLemonsFromStore(lemonsBought);
             }
@@ -115,11 +128,11 @@ namespace LemonadeStand
             else
             {
                 Console.WriteLine("You have successfully bought" + ' ' + lemonsBought + ' ' + "lemons.");
-                remainingMoney = (startMoney - LemonCost(lemonsBought));
+                GetRemainingMoney(LemonCost(lemonsBought));
                 Console.WriteLine("You have" + ' ' + "$" + remainingMoney + "left.");
                 Inventory.AddLemonsFromStore(lemonsBought);
             }
-            return remainingMoney;
+            BuyLemons();
             }
         public double BuySugar()
         {
