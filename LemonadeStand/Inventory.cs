@@ -9,10 +9,11 @@ namespace LemonadeStand
     class Inventory
     {
         Store Store = new Store();
+        Customer Customer = new Customer();
+        Recipe Recipe = new Recipe();
         public int lemons;
         public int cupsOfSugar;
         public int iceCubes;
-        
         public Inventory() 
         {
             
@@ -22,6 +23,15 @@ namespace LemonadeStand
             //substracted from the total currently in the inventory.
         }
 
+        public void DisplayAmountOfEachIngredient()
+        {
+            Console.WriteLine("You have" + ' ' + lemons + ' ' + "lemons.");
+            Console.ReadLine();
+            Console.WriteLine("You have" + ' ' + cupsOfSugar + ' ' + "cups of sugar.");
+            Console.ReadLine();
+            Console.WriteLine("You have" + ' ' + iceCubes + ' ' + "ice cubes.");
+            Console.ReadLine();
+        }
         public int AddLemonsFromStore(int lemonsBought)
         {
             if(lemons >= 0)
@@ -35,7 +45,7 @@ namespace LemonadeStand
             return lemons;
         }
 
-        public int CheckCupsOfSugarAfterStore(int cupsOfSugarBought)
+        public int AddCupsOfSugarFromStore(int cupsOfSugarBought)
         {
             if(cupsOfSugar >= 0)
             {
@@ -48,7 +58,7 @@ namespace LemonadeStand
             return cupsOfSugar;
         }
 
-        public int CheckIceCubesAfterStore(int iceCubesBought)
+        public int AddIceCubesFromStore(int iceCubesBought)
         {
             if(iceCubes >= 0)
             {
@@ -56,8 +66,48 @@ namespace LemonadeStand
             }
             else
             {
-
+                iceCubes = iceCubesBought;
             }
+            return iceCubes;
+        }
+
+        public int SubtractLemonsFromCupsSold(Day Day, Recipe Recipe)
+        {
+            if(lemons >= 0)
+            {
+                lemons -= Convert.ToInt32(Day.totalCupsForTheDay * Recipe.GetNumberOfLemonsUsed());
+            }
+            else if(lemons < 0)
+            {
+                lemons = 0;
+            }
+            return lemons;
+        }
+
+        public int SubtractCupsOfSugarFromCupsSold(Day Day, Recipe Recipe)
+        {
+            if(cupsOfSugar >= 0)
+            {
+                cupsOfSugar -= Convert.ToInt32(Day.totalCupsForTheDay * Recipe.GetNumberOfCupsOfSugarUsed());
+            }
+            else if(cupsOfSugar < 0)
+            {
+                cupsOfSugar = 0;
+            }
+            return cupsOfSugar;
+        }
+
+        public int SubstractIceCubesFromCupsSold(Day Day, Recipe Recipe)
+        {
+            if(iceCubes >= 0)
+            {
+                iceCubes -= Convert.ToInt32(Day.totalCupsForTheDay * Recipe.GetNumberOfIceCubesUsed());
+            }
+            else if(iceCubes < 0)
+            {
+                iceCubes = 0;
+            }
+            return iceCubes;
         }
     }
 }
