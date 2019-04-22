@@ -15,7 +15,7 @@ namespace LemonadeStand
         public string weatherCondition;
         public int temperature;
         public int customersForDay;
-        public double totalCupsForTheDay;
+        public int cupsSold;
         List<string> WeatherForecast = new List<string>();
 
 
@@ -99,17 +99,10 @@ namespace LemonadeStand
             return customersForDay;
         }
 
-        public double CheckTotalCupsBoughtForDay(double customerCups)
+        public int CheckTotalCupsBoughtForDay(int customerCups)
         {
-            if(totalCupsForTheDay > 0)
-            {
-                totalCupsForTheDay += customerCups;
-            }
-            else
-            {
-                totalCupsForTheDay = customerCups;
-            }
-            return totalCupsForTheDay;
+            cupsSold = customerCups;
+            return cupsSold;
         }
 
         public void CheckWeatherForecast()

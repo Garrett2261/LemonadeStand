@@ -25,6 +25,7 @@ namespace LemonadeStand
         public double priceOfFiftyIceCubes;
         public double priceOfOneHundredSeventyFiveIceCubes;
         public double priceOfThreeHundredFiftyIceCubes;
+        public double moneySpentOnIngredients;
         Inventory Inventory = new Inventory();
         
         public Store()
@@ -38,6 +39,7 @@ namespace LemonadeStand
             this.priceOfFiftyIceCubes = 0.60;
             this.priceOfOneHundredSeventyFiveIceCubes = 2.05;
             this.priceOfThreeHundredFiftyIceCubes = 3.95;
+            this.moneySpentOnIngredients = lemonCost + sugarCost + iceCubesCost;
         }
 
         public void ExploreStore()
@@ -61,6 +63,7 @@ namespace LemonadeStand
                     break;
             }
         }
+        
 
         public double BuyLemons()
         {
@@ -231,6 +234,8 @@ namespace LemonadeStand
             }
             return remainingMoney;
         }
+
+        
 
         public double LemonCost(int lemonsBought)
         {

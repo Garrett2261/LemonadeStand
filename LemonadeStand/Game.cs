@@ -33,27 +33,29 @@ namespace LemonadeStand
         {
             Day.CheckWeatherForecast();
             Day.CheckTodaysWeather();
+            Store.ExploreStore();
             counter = 0;
             int customers = Day.CountCustomers();
             while(counter < customers)
             {
                 if(counter > 0)
                 {
-                    var money = Player.CalculateTotal();
-                    Console.WriteLine(money);
+                    Customer.BuyLemonade(price);
+                    Player.CalculateTotal();
                     counter++;
 
                 }
                 else
                 {
-                    var cost = Player.SetPrice();
-                    price = cost;
-                    var total = Player.CalculateTotal();
-                    Console.WriteLine(total);
+                    price = Player.SetPrice();
+                    Customer.BuyLemonade(price);
+                    Player.CalculateTotal();
                     counter++;
                 }
                 
             }
+            Console.WriteLine("The day is now over. The total money you made today was" + ' ' + "$" + (Player.moneyMade) + ".");
+            
             Player.SetPrice();
             //Player.CalculateTotal();
 

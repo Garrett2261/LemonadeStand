@@ -75,7 +75,7 @@ namespace LemonadeStand
         {
             if(lemons >= 0)
             {
-                lemons -= Convert.ToInt32(Day.totalCupsForTheDay * Recipe.GetNumberOfLemonsUsed());
+                lemons -= Day.cupsSold * Recipe.GetNumberOfLemonsUsed();
             }
             else if(lemons < 0)
             {
@@ -88,7 +88,7 @@ namespace LemonadeStand
         {
             if(cupsOfSugar >= 0)
             {
-                cupsOfSugar -= Convert.ToInt32(Day.totalCupsForTheDay * Recipe.GetNumberOfCupsOfSugarUsed());
+                cupsOfSugar -= Day.cupsSold * Recipe.GetNumberOfCupsOfSugarUsed();
             }
             else if(cupsOfSugar < 0)
             {
@@ -101,7 +101,7 @@ namespace LemonadeStand
         {
             if(iceCubes >= 0)
             {
-                iceCubes -= Convert.ToInt32(Day.totalCupsForTheDay * Recipe.GetNumberOfIceCubesUsed());
+                iceCubes -= Day.cupsSold * Recipe.GetNumberOfIceCubesUsed();
             }
             else if(iceCubes < 0)
             {

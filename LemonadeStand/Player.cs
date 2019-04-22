@@ -16,12 +16,12 @@ namespace LemonadeStand
         public int numberOfIceCubes;
         public double costOfLemonade;
         public double totalCost;
-        public double totalCups;
+        public int cups;
         Inventory Inventory = new Inventory();
         Day Day = new Day();
         public Player ()
         {
-            
+            this.startingMoney = 20.00;
 
         }
 
@@ -36,9 +36,10 @@ namespace LemonadeStand
 
         public double CalculateTotal()
         {
-            totalCups = Day.totalCupsForTheDay;
-            moneyMade = totalCups * costOfLemonade;
+            cups = Day.cupsSold;
+            moneyMade += cups * costOfLemonade;
             return moneyMade;
+            
             
             
 
@@ -50,6 +51,26 @@ namespace LemonadeStand
             string price = Console.ReadLine();
             int cost = Int32.Parse(price);
             costOfLemonade = cost * .01;
+            return costOfLemonade;
+        }
+
+        public double ChangePriceDuringDay()
+        {
+            Console.WriteLine("Your current price is" + ' ' + "$" + costOfLemonade + ". Would you like to keep your current price, or would you like to change it? Please enter 'yes', or 'no'.");
+            string answer = Console.ReadLine();
+            switch (answer)
+            {
+                case "yes":
+                    double newPrice = SetPrice();
+                    costOfLemonade = newPrice;
+                    break;
+                case "no":
+                    break;
+                default:
+                    Console.WriteLine("Please enter only 'yes' or 'no'.");
+                    ChangePriceDuringDay();
+                    break;
+            }
             return costOfLemonade;
         }
 

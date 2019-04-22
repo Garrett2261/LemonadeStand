@@ -8,7 +8,7 @@ namespace LemonadeStand
 {
     public class Customer
     {
-        public double cupsOfLemonade;
+        public int cupsOfLemonade;
         public int spendingLimit;
         public double costLimit;
         public Random Random = new Random();
@@ -20,12 +20,12 @@ namespace LemonadeStand
             this.costLimit = Random.NextDouble();
         }
 
-        public void BuyLemonade(double price /*string weather, int temperature*/)
+        public void BuyLemonade(double price/*string weather, int temperature*/)
         {
-            //price = Player.SetPrice();
+            
             if(price > costLimit)
             {
-                cupsOfLemonade = Random.Next(0, 1);
+                cupsOfLemonade = Convert.ToInt32(Random.Next(0, 1));
                 Console.WriteLine("The customer bought" + ' ' + cupsOfLemonade + ' ' + "cups of lemonade.");
                 
             }
@@ -34,11 +34,13 @@ namespace LemonadeStand
             {
                 //weather = Weather.GetWeatherCondition();
                 //temperature = Weather.GetTemperature();
-                cupsOfLemonade = Math.Floor(spendingLimit / price);
+                cupsOfLemonade = Convert.ToInt32(Math.Floor(spendingLimit / price));
                 Console.WriteLine("The customer bought" + ' ' + cupsOfLemonade + ' ' + "cups of lemonade.");
                 
             }
             Day.CheckTotalCupsBoughtForDay(cupsOfLemonade);
+            
+            
             
             
 
