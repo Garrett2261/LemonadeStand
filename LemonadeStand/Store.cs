@@ -62,7 +62,7 @@ namespace LemonadeStand
             }
         }
 
-        public void BuyLemons()
+        public double BuyLemons()
         {
             Console.WriteLine("You can either buy '10' lemons for 0.50, '25' lemons for 1.30, or '50' lemons for 2.10. Or if you don't need any and or already have enough, you can enter 'menu' to go back to the Main Menu.");
             string amountWanted = Console.ReadLine();
@@ -88,6 +88,7 @@ namespace LemonadeStand
             if(remainingMoney >= LemonCost(lemonsBought))
             {
                 Console.WriteLine("You have successfully bought" + ' ' + lemonsBought + ' ' + "lemons.");
+                remainingMoney -= LemonCost(lemonsBought);
                 Inventory.AddLemonsFromStore(lemonsBought);
             }
             else if(remainingMoney < LemonCost(lemonsBought))
@@ -107,8 +108,15 @@ namespace LemonadeStand
                         break;
                 }
             }
+            else
+            {
+                Console.WriteLine("You have successfully bought" + ' ' + lemonsBought + ' ' + "lemons.");
+                remainingMoney = (startMoney - LemonCost(lemonsBought));
+                Inventory.AddLemonsFromStore(lemonsBought);
             }
-        public void BuySugar()
+            return remainingMoney;
+            }
+        public double BuySugar()
         {
             Console.WriteLine("You can either buy '5' cups of sugar for 0.90, '15' cups of sugar for 2.00, or '30' cups of sugar for 4.75. Or if you don't need any and or already have enough, you can enter 'menu' to go back to the Main Menu.");
             string amountWanted = Console.ReadLine();
@@ -134,6 +142,7 @@ namespace LemonadeStand
             if(remainingMoney >= SugarCost(cupsOfSugarBought))
             {
                 Console.WriteLine("You have successfully bought" + ' ' + cupsOfSugarBought + ' ' + "cups of sugar.");
+                remainingMoney -= SugarCost(cupsOfSugarBought);
                 Inventory.AddCupsOfSugarFromStore(cupsOfSugarBought);
             }
             else if(remainingMoney < SugarCost(cupsOfSugarBought))
@@ -153,9 +162,16 @@ namespace LemonadeStand
                         break;
                 }
             }
+            else
+            {
+                Console.WriteLine("You have successfully bought" + ' ' + cupsOfSugarBought + ' ' + "cups of sugar.");
+                remainingMoney = (startMoney - SugarCost(cupsOfSugarBought));
+                Inventory.AddCupsOfSugarFromStore(cupsOfSugarBought);
+            }
+            return remainingMoney;
         }
 
-        public void BuyIceCubes()
+        public double BuyIceCubes()
         {
             Console.WriteLine("You can either buy '50' ice cubes for 0.60, '175' ice cubes for 2.05, or '350' ice cubes for 3.95. Or if you don't need any and or already have enough, you can enter 'menu' to go back to the Main Menu.");
             string amountWanted = Console.ReadLine();
@@ -181,6 +197,7 @@ namespace LemonadeStand
             if (remainingMoney >= IceCubeCost(numberOfIceCubesBought))
             {
                 Console.WriteLine("You have successfully bought" + ' ' + numberOfIceCubesBought + ' ' + "ice cubes.");
+                remainingMoney -= IceCubeCost(numberOfIceCubesBought);
                 Inventory.AddIceCubesFromStore(numberOfIceCubesBought);
             }
             else if (remainingMoney < IceCubeCost(numberOfIceCubesBought))
@@ -200,6 +217,13 @@ namespace LemonadeStand
                         break;
                 }
             }
+            else
+            {
+                Console.WriteLine("You have successfully bought" + ' ' + numberOfIceCubesBought + ' ' + "ice cubes.");
+                remainingMoney = (startMoney - IceCubeCost(numberOfIceCubesBought));
+                Inventory.AddIceCubesFromStore(numberOfIceCubesBought);
+            }
+            return remainingMoney;
         }
 
         public double LemonCost(int lemonsBought)
