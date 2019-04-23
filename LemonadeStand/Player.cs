@@ -17,12 +17,11 @@ namespace LemonadeStand
         public double costOfLemonade;
         public double totalCost;
         public int cups;
-        Inventory Inventory = new Inventory();
         Day Day = new Day();
         public Player ()
         {
             this.startingMoney = 20.00;
-
+            
         }
 
         public double CalculateTotal()

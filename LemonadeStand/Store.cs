@@ -8,7 +8,7 @@ namespace LemonadeStand
 {
     public class Store
     {
-        public double startMoney = 20.00;
+        public double startMoney;
         public double remainingMoney;
         public double lemonCost;
         public double sugarCost;
@@ -25,11 +25,12 @@ namespace LemonadeStand
         public double priceOfFiftyIceCubes;
         public double priceOfOneHundredSeventyFiveIceCubes;
         public double priceOfThreeHundredFiftyIceCubes;
-        public double moneySpentOnIngredients;
+        public double totalCostSpentOnIngredients;
         Inventory Inventory = new Inventory();
         
         public Store()
         {
+            this.startMoney = 20.00;
             this.priceOfTenLemons = 0.50;
             this.priceOfTwentyFiveLemons = 1.30;
             this.priceOfFiftyLemons = 2.10;
@@ -39,7 +40,6 @@ namespace LemonadeStand
             this.priceOfFiftyIceCubes = 0.60;
             this.priceOfOneHundredSeventyFiveIceCubes = 2.05;
             this.priceOfThreeHundredFiftyIceCubes = 3.95;
-            this.moneySpentOnIngredients = lemonCost + sugarCost + iceCubesCost;
         }
 
         public void ExploreStore()
@@ -58,10 +58,13 @@ namespace LemonadeStand
                 case "ice":
                     BuyIceCubes();
                     break;
+                case "exit":
+                    break;
                 default:
                     Console.WriteLine("Not a valid ingredient. You can only buy lemons, sugar, or ice. Please try again.");
                     break;
             }
+            return;
         }
         
         public double GetRemainingMoney(double cost)
@@ -77,9 +80,24 @@ namespace LemonadeStand
             return remainingMoney;
 
         }
+        public double SeeTotalCostForIngredients(double price)
+        {
+            if(totalCostSpentOnIngredients > 0)
+            {
+                totalCostSpentOnIngredients += price;
+            }
+            else
+            {
+                totalCostSpentOnIngredients = price;
+            }
+            return totalCostSpentOnIngredients;
+        }
+
+        //public double SeeTotalSugarCost(double price)
 
         public void BuyLemons()
         {
+            //Inventory Inventory = new Inventory();
             Console.WriteLine("You can either buy '10' lemons for 0.50, '25' lemons for 1.30, or '50' lemons for 2.10. Or if you don't need any and or already have enough, you can enter 'menu' to go back to the Main Menu.");
             string amountWanted = Console.ReadLine();
             switch (amountWanted)
@@ -104,6 +122,7 @@ namespace LemonadeStand
             if(remainingMoney >= LemonCost(lemonsBought))
             {
                 Console.WriteLine("You have successfully bought" + ' ' + lemonsBought + ' ' + "lemons.");
+                SeeTotalCostForIngredients(LemonCost(lemonsBought));
                 GetRemainingMoney(LemonCost(lemonsBought));
                 Console.WriteLine("You have" + ' ' + "$" + remainingMoney + "left.");
                 Inventory.AddLemonsFromStore(lemonsBought);
@@ -128,6 +147,7 @@ namespace LemonadeStand
             else
             {
                 Console.WriteLine("You have successfully bought" + ' ' + lemonsBought + ' ' + "lemons.");
+                SeeTotalCostForIngredients(LemonCost(lemonsBought));
                 GetRemainingMoney(LemonCost(lemonsBought));
                 Console.WriteLine("You have" + ' ' + "$" + remainingMoney + "left.");
                 Inventory.AddLemonsFromStore(lemonsBought);
@@ -160,6 +180,7 @@ namespace LemonadeStand
             if(remainingMoney >= SugarCost(cupsOfSugarBought))
             {
                 Console.WriteLine("You have successfully bought" + ' ' + cupsOfSugarBought + ' ' + "cups of sugar.");
+                SeeTotalCostForIngredients(SugarCost(cupsOfSugarBought));
                 GetRemainingMoney(SugarCost(cupsOfSugarBought));
                 Console.WriteLine("You have" + ' ' + "$" + remainingMoney + "left.");
                 Inventory.AddCupsOfSugarFromStore(cupsOfSugarBought);
@@ -184,6 +205,7 @@ namespace LemonadeStand
             else
             {
                 Console.WriteLine("You have successfully bought" + ' ' + cupsOfSugarBought + ' ' + "cups of sugar.");
+                SeeTotalCostForIngredients(SugarCost(cupsOfSugarBought));
                 GetRemainingMoney(SugarCost(cupsOfSugarBought));
                 Console.WriteLine("You have" + ' ' + "$" + remainingMoney + "left.");
                 Inventory.AddCupsOfSugarFromStore(cupsOfSugarBought);
@@ -217,6 +239,7 @@ namespace LemonadeStand
             if (remainingMoney >= IceCubeCost(numberOfIceCubesBought))
             {
                 Console.WriteLine("You have successfully bought" + ' ' + numberOfIceCubesBought + ' ' + "ice cubes.");
+                SeeTotalCostForIngredients(IceCubeCost(numberOfIceCubesBought));
                 GetRemainingMoney(IceCubeCost(numberOfIceCubesBought));
                 Console.WriteLine("You have" + ' ' + "$" + remainingMoney + "left.");
                 Inventory.AddIceCubesFromStore(numberOfIceCubesBought);
@@ -241,6 +264,7 @@ namespace LemonadeStand
             else
             {
                 Console.WriteLine("You have successfully bought" + ' ' + numberOfIceCubesBought + ' ' + "ice cubes.");
+                SeeTotalCostForIngredients(IceCubeCost(numberOfIceCubesBought));
                 GetRemainingMoney(IceCubeCost(numberOfIceCubesBought));
                 Console.WriteLine("You have" + ' ' + "$" + remainingMoney + "left.");
                 Inventory.AddIceCubesFromStore(numberOfIceCubesBought);

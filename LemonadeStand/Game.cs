@@ -13,6 +13,8 @@ namespace LemonadeStand
         Weather Weather = new Weather();
         Store Store = new Store();
         Customer Customer = new Customer();
+        Inventory Inventory = new Inventory();
+        Recipe Recipe = new Recipe();
         public int counter;
         public Random Rand = new Random();
         public double price;
@@ -34,6 +36,11 @@ namespace LemonadeStand
             Day.CheckWeatherForecast();
             Day.CheckTodaysWeather();
             Store.ExploreStore();
+            Inventory.DisplayAmountOfEachIngredient();
+            Recipe.GetNumberOfLemonsUsed();
+            Recipe.GetNumberOfCupsOfSugarUsed();
+            Recipe.GetNumberOfIceCubesUsed();
+            price = Player.SetPrice();
             counter = 0;
             int customers = Day.CountCustomers();
             while(counter < customers)
@@ -47,7 +54,7 @@ namespace LemonadeStand
                 }
                 else
                 {
-                    price = Player.SetPrice();
+                    
                     Customer.BuyLemonade(price);
                     Player.CalculateTotal();
                     counter++;

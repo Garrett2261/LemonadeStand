@@ -12,7 +12,6 @@ namespace LemonadeStand
         public int spendingLimit;
         public double costLimit;
         public Random Random = new Random();
-        Player Player = new Player();
         Day Day = new Day();
         public Customer()
         {
