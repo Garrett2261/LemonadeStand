@@ -25,24 +25,11 @@ namespace LemonadeStand
 
         }
 
-        public void GetRecipe()
-        {
-            
-
-
-            
-
-        }
-
         public double CalculateTotal()
         {
             cups = Day.cupsSold;
             moneyMade += cups * costOfLemonade;
             return moneyMade;
-            
-            
-            
-
         }
         
         public double SetPrice()

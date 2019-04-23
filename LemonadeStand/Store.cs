@@ -45,7 +45,7 @@ namespace LemonadeStand
         public void ExploreStore()
         {
             Console.WriteLine("Welcome to the store! Here you can buy all the ingredients you need for your lemonade such as lemons, sugar, and ice.");
-            Console.WriteLine("Please choose 'lemons', 'sugar', or 'ice'.");
+            Console.WriteLine("Please choose 'lemons', 'sugar', or 'ice'. Or if you don't need any ingredients and or are done shopping, enter 'exit'.");
             string ingredient = Console.ReadLine();
             switch (ingredient)
             {
@@ -134,7 +134,7 @@ namespace LemonadeStand
             }
             BuyLemons();
             }
-        public double BuySugar()
+        public void BuySugar()
         {
             Console.WriteLine("You can either buy '5' cups of sugar for 0.90, '15' cups of sugar for 2.00, or '30' cups of sugar for 4.75. Or if you don't need any and or already have enough, you can enter 'menu' to go back to the Main Menu.");
             string amountWanted = Console.ReadLine();
@@ -160,7 +160,7 @@ namespace LemonadeStand
             if(remainingMoney >= SugarCost(cupsOfSugarBought))
             {
                 Console.WriteLine("You have successfully bought" + ' ' + cupsOfSugarBought + ' ' + "cups of sugar.");
-                remainingMoney -= SugarCost(cupsOfSugarBought);
+                GetRemainingMoney(SugarCost(cupsOfSugarBought));
                 Console.WriteLine("You have" + ' ' + "$" + remainingMoney + "left.");
                 Inventory.AddCupsOfSugarFromStore(cupsOfSugarBought);
             }
@@ -184,14 +184,14 @@ namespace LemonadeStand
             else
             {
                 Console.WriteLine("You have successfully bought" + ' ' + cupsOfSugarBought + ' ' + "cups of sugar.");
-                remainingMoney = (startMoney - SugarCost(cupsOfSugarBought));
+                GetRemainingMoney(SugarCost(cupsOfSugarBought));
                 Console.WriteLine("You have" + ' ' + "$" + remainingMoney + "left.");
                 Inventory.AddCupsOfSugarFromStore(cupsOfSugarBought);
             }
-            return remainingMoney;
+            BuySugar();
         }
 
-        public double BuyIceCubes()
+        public void BuyIceCubes()
         {
             Console.WriteLine("You can either buy '50' ice cubes for 0.60, '175' ice cubes for 2.05, or '350' ice cubes for 3.95. Or if you don't need any and or already have enough, you can enter 'menu' to go back to the Main Menu.");
             string amountWanted = Console.ReadLine();
@@ -217,7 +217,7 @@ namespace LemonadeStand
             if (remainingMoney >= IceCubeCost(numberOfIceCubesBought))
             {
                 Console.WriteLine("You have successfully bought" + ' ' + numberOfIceCubesBought + ' ' + "ice cubes.");
-                remainingMoney -= IceCubeCost(numberOfIceCubesBought);
+                GetRemainingMoney(IceCubeCost(numberOfIceCubesBought));
                 Console.WriteLine("You have" + ' ' + "$" + remainingMoney + "left.");
                 Inventory.AddIceCubesFromStore(numberOfIceCubesBought);
             }
@@ -241,11 +241,11 @@ namespace LemonadeStand
             else
             {
                 Console.WriteLine("You have successfully bought" + ' ' + numberOfIceCubesBought + ' ' + "ice cubes.");
-                remainingMoney = (startMoney - IceCubeCost(numberOfIceCubesBought));
+                GetRemainingMoney(IceCubeCost(numberOfIceCubesBought));
                 Console.WriteLine("You have" + ' ' + "$" + remainingMoney + "left.");
                 Inventory.AddIceCubesFromStore(numberOfIceCubesBought);
             }
-            return remainingMoney;
+            BuyIceCubes();
         }
 
         
