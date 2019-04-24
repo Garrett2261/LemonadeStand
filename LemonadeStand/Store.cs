@@ -27,7 +27,7 @@ namespace LemonadeStand
         public double priceOfThreeHundredFiftyIceCubes;
         public double totalCostSpentOnIngredients;
         Inventory Inventory = new Inventory();
-        
+        Player Player = new Player();
         public Store()
         {
             this.startMoney = 20.00;
@@ -91,6 +91,11 @@ namespace LemonadeStand
                 totalCostSpentOnIngredients = price;
             }
             return totalCostSpentOnIngredients;
+        }
+
+        public double SeeNewMoneyLeft()
+        {
+
         }
 
         //public double SeeTotalSugarCost(double price)

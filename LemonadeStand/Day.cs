@@ -16,6 +16,7 @@ namespace LemonadeStand
         public int temperature;
         public int customersForDay;
         public int cupsSold;
+        public int cupsSoldForTheDay;
         List<string> WeatherForecast = new List<string>();
 
 
@@ -99,10 +100,22 @@ namespace LemonadeStand
             return customersForDay;
         }
 
-        public int CheckTotalCupsBoughtForDay(int customerCups)
+        public int CheckCupsBoughtFromSale(int customerCups)
         {
             cupsSold = customerCups;
             return cupsSold;
+        }
+        public int CheckTotalCupsBoughtForTheDay()
+        {
+            if(cupsSoldForTheDay > 0)
+            {
+                cupsSoldForTheDay += cupsSold;
+            }
+            else
+            {
+                cupsSoldForTheDay = cupsSold;
+            }
+            return cupsSoldForTheDay;
         }
 
         public void CheckWeatherForecast()
@@ -122,20 +135,8 @@ namespace LemonadeStand
 
         public void CheckTodaysWeather()
         {
-            //var dayWeather = Weather.GetWeatherCondition();
-            //var dayTemperature = Weather.GetTemperature();
             Console.WriteLine(weatherCondition + ' ' + temperature);
-            Console.ReadLine();
-            //weatherCondition = dayWeather;
-            //temp = dayTemperature;
-            
-
-            
-            
-            
-            
-            
-            
+            Console.ReadLine();        
         }
 
         

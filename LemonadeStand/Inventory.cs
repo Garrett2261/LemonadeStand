@@ -8,7 +8,6 @@ namespace LemonadeStand
 {
     class Inventory
     {
-        Customer Customer = new Customer();
         public int lemons;
         public int cupsOfSugar;
         public int iceCubes;
@@ -73,7 +72,7 @@ namespace LemonadeStand
         {
             if(lemons >= 0)
             {
-                lemons -= Day.cupsSold * Recipe.lemons;
+                lemons -= Day.cupsSoldForTheDay * Recipe.lemons;
             }
             else if(lemons < 0)
             {
@@ -86,7 +85,7 @@ namespace LemonadeStand
         {
             if(cupsOfSugar >= 0)
             {
-                cupsOfSugar -= Day.cupsSold * Recipe.cupsOfSugar;
+                cupsOfSugar -= Day.cupsSoldForTheDay * Recipe.cupsOfSugar;
             }
             else if(cupsOfSugar < 0)
             {
@@ -99,7 +98,7 @@ namespace LemonadeStand
         {
             if(iceCubes >= 0)
             {
-                iceCubes -= Day.cupsSold * Recipe.iceCubes;
+                iceCubes -= Day.cupsSoldForTheDay * Recipe.iceCubes;
             }
             else if(iceCubes < 0)
             {

@@ -61,12 +61,30 @@ namespace LemonadeStand
                 }
                 
             }
-            Console.WriteLine("The day is now over. The total money you made today was" + ' ' + "$" + (Player.moneyMade) + ".");
+            Inventory.SubtractLemonsFromCupsSold(Day, Recipe);
+            Inventory.SubtractCupsOfSugarFromCupsSold(Day, Recipe);
+            Inventory.SubstractIceCubesFromCupsSold(Day, Recipe);
+            Inventory.DisplayAmountOfEachIngredient();
+            Console.WriteLine("You now have" + ' ' + "$" + Player.moneyLeft + ".");
+            if(Player.dailyProfit > 0)
+            {
+                Console.WriteLine("You made a profit of" + ' ' + "$" + Player.dailyProfit + ' ' + "for the day.");
+            }
+            else if(Player.dailyProfit < 0)
+            {
+                Console.WriteLine("You went under today and had a loss of" + ' ' + "$" + Player.dailyProfit + ' ' + "for the day.");
+            }
+            if(Player.totalProfit > 0)
+            {
+                Console.WriteLine("For the number of days you have played so far, you have a profit of" + ' ' + "$" + Player.totalProfit + ".");
+            }
+            else if(Player.totalProfit < 0)
+            {
+                Console.WriteLine("For the number od days you have played so far, you have a loss of -" + "$" + Player.totalProfit + ".");
+            }
             
-            Player.SetPrice();
-            //Player.CalculateTotal();
-
-            Console.WriteLine(Math.Floor(210.0/20));
+            
+            
             
             
             

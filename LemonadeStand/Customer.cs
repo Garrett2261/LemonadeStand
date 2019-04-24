@@ -12,6 +12,7 @@ namespace LemonadeStand
         public int spendingLimit;
         public double costLimit;
         public Random Random = new Random();
+        Inventory Inventory = new Inventory();
         Day Day = new Day();
         public Customer()
         {
@@ -26,7 +27,6 @@ namespace LemonadeStand
             {
                 cupsOfLemonade = Convert.ToInt32(Random.Next(0, 1));
                 Console.WriteLine("The customer bought" + ' ' + cupsOfLemonade + ' ' + "cups of lemonade.");
-                
             }
             //Include the max cost of lemonade too in this function.
             else if(price <= costLimit)
@@ -37,7 +37,7 @@ namespace LemonadeStand
                 Console.WriteLine("The customer bought" + ' ' + cupsOfLemonade + ' ' + "cups of lemonade.");
                 
             }
-            Day.CheckTotalCupsBoughtForDay(cupsOfLemonade);
+            Day.CheckCupsBoughtFromSale(cupsOfLemonade);
             
             
             
