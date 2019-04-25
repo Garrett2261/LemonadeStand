@@ -43,10 +43,10 @@ namespace LemonadeStand
             Recipe.GetNumberOfIceCubesUsed();
             price = Player.SetPrice();
             counter = 0;
-            int customers = Day.CountCustomers();
+            int customers = DayOfLemonadeStand.CountCustomers();
             while(counter < customers)
             {
-                if(counter > 0)
+                if(counter >= 0)
                 {
                     counter++;
                     Customer Customer = new Customer();
