@@ -34,7 +34,8 @@ namespace LemonadeStand
         public void StartGame()
         {
             Day.CheckWeatherForecast();
-            Day.CheckTodaysWeather();
+            Day DayOfLemonadeStand = new Day();
+            DayOfLemonadeStand.CheckTodaysWeather();
             Store.ExploreStore();
             Inventory.DisplayAmountOfEachIngredient();
             Recipe.GetNumberOfLemonsUsed();
@@ -47,20 +48,11 @@ namespace LemonadeStand
             {
                 if(counter > 0)
                 {
+                    counter++;
                     Customer Customer = new Customer();
                     Customer.BuyLemonade(price);
                     Player.CalculateTotal();
-                    counter++;
-
-                }
-                else
-                {
-                    Customer Customer = new Customer();
-                    Customer.BuyLemonade(price);
-                    Player.CalculateTotal();
-                    counter++;
-                }
-                
+                }    
             }
             Inventory.SubtractLemonsFromCupsSold(Day, Recipe);
             Inventory.SubtractCupsOfSugarFromCupsSold(Day, Recipe);
