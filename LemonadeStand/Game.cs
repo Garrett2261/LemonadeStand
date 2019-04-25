@@ -12,7 +12,7 @@ namespace LemonadeStand
         Day Day = new Day();
         Weather Weather = new Weather();
         Store Store = new Store();
-        Customer Customer = new Customer();
+        //Customer Customer = new Customer();
         Inventory Inventory = new Inventory();
         Recipe Recipe = new Recipe();
         public int counter;
@@ -47,6 +47,7 @@ namespace LemonadeStand
             {
                 if(counter > 0)
                 {
+                    Customer Customer = new Customer();
                     Customer.BuyLemonade(price);
                     Player.CalculateTotal();
                     counter++;
@@ -54,7 +55,7 @@ namespace LemonadeStand
                 }
                 else
                 {
-                    
+                    Customer Customer = new Customer();
                     Customer.BuyLemonade(price);
                     Player.CalculateTotal();
                     counter++;

@@ -27,7 +27,7 @@ namespace LemonadeStand
         public double priceOfThreeHundredFiftyIceCubes;
         public double totalCostSpentOnIngredients;
         Inventory Inventory = new Inventory();
-        Player Player = new Player();
+        //Player Player = new Player();
         public Store()
         {
             this.startMoney = 20.00;
@@ -95,14 +95,16 @@ namespace LemonadeStand
 
         public double SeeNewMoneyLeft()
         {
-
+            Player Player = new Player();
+            remainingMoney = Player.moneyLeft;
+            return remainingMoney;
         }
 
-        //public double SeeTotalSugarCost(double price)
+        
 
         public void BuyLemons()
         {
-            //Inventory Inventory = new Inventory();
+            
             Console.WriteLine("You can either buy '10' lemons for 0.50, '25' lemons for 1.30, or '50' lemons for 2.10. Or if you don't need any and or already have enough, you can enter 'menu' to go back to the Main Menu.");
             string amountWanted = Console.ReadLine();
             switch (amountWanted)

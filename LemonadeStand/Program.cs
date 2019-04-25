@@ -8,8 +8,7 @@ namespace LemonadeStand
 {
     class Program
     {
-        //public int numberOfRounds;
-        //public int counter;
+        
         static void Main(string[] args)
         {
 

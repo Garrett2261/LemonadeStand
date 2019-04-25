@@ -14,10 +14,6 @@ namespace LemonadeStand
         public Inventory() 
         {
             
-            //when a new inventory object is created, I want it to include the total amount of lemons,
-            //sugar, and ice cubes that the player has. Every time that a customer buys a cup or cups,
-            //the amount of lemons, cups of sugar, and ice cubes that were used in the recipe will be 
-            //substracted from the total currently in the inventory.
         }
 
         public void DisplayAmountOfEachIngredient()

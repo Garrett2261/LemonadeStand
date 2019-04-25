@@ -12,9 +12,6 @@ namespace LemonadeStand
         public double moneyMade;
         public double moneyLeft;
         public int numberOfDays;
-        public int numberOfLemons;
-        public int cupsOfSugar;
-        public int numberOfIceCubes;
         public double costOfLemonade;
         public double totalCost;
         public int cups;
