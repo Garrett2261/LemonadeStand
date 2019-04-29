@@ -8,9 +8,9 @@ namespace LemonadeStand
 {
     public class Player
     {
-        public double startingMoney;
+        public double money;
         public double moneyMade;
-        public double moneyLeft;
+        //public double moneyLeft;
         public int numberOfDays;
         public double costOfLemonade;
         public double totalCost;
@@ -18,18 +18,18 @@ namespace LemonadeStand
         public double dailyProfit;
         public double totalProfit;
         Day Day = new Day();
-        Store Store = new Store();
+        //Store Store = new Store();
         public Player ()
         {
-            this.moneyLeft = Store.remainingMoney + moneyMade;
-            
+            this.money = 20.00;
+            //this.moneyLeft = Store.remainingMoney + moneyMade;
         }
 
-        public double GetDailyProfit()
-        {
-            dailyProfit = moneyMade - Store.totalCostSpentOnIngredients;
-            return dailyProfit;
-        }
+        //public double GetDailyProfit()
+        //{
+        //    dailyProfit = moneyMade - Store.totalCostSpentOnIngredients;
+        //    return dailyProfit;
+        //}
 
         public double GetTotalRunningProfit()
         {
@@ -45,10 +45,11 @@ namespace LemonadeStand
 
         }
 
-        public double CalculateTotal()
+        public double CalculateTotal(Customer Customer)
         {
-            cups = Day.cupsSold;
+            cups = Customer.cupsOfLemonade;
             moneyMade += cups * costOfLemonade;
+            money += moneyMade;
             return moneyMade;
         }
         

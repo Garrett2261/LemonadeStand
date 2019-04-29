@@ -20,7 +20,7 @@ namespace LemonadeStand
             this.costLimit = Random.NextDouble();
         }
 
-        public void BuyLemonade(double price/*string weather, int temperature*/)
+        public int BuyLemonade(double price/*string weather, int temperature*/)
         {
             
             if(price > costLimit)
@@ -37,7 +37,9 @@ namespace LemonadeStand
                 Console.WriteLine("The customer bought" + ' ' + cupsOfLemonade + ' ' + "cups of lemonade.");
                 
             }
-            Day.CheckCupsBoughtFromSale(cupsOfLemonade);
+            //Day.CheckCupsBoughtFromSale(cupsOfLemonade);
+            return cupsOfLemonade;
+
             
             
             

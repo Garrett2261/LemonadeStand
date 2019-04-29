@@ -37,11 +37,11 @@ namespace LemonadeStand
             {
                 if((temperature >= 75) && (temperature <= 100))
                 {
-                    customersForDay = Demand.Next(40,50);
+                    customersForDay = Demand.Next(50,75);
                 }
                 else if((temperature >= 50) && (temperature <= 75))
                 {
-                    customersForDay = Demand.Next(25,40);
+                    customersForDay = Demand.Next(15,25);
                 }
                 else
                 {

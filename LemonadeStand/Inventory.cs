@@ -8,6 +8,7 @@ namespace LemonadeStand
 {
     class Inventory
     {
+        public int paperCups;
         public int lemons;
         public int cupsOfSugar;
         public int iceCubes;
@@ -18,12 +19,27 @@ namespace LemonadeStand
 
         public void DisplayAmountOfEachIngredient()
         {
+            Console.WriteLine("You have" + ' ' + paperCups + ' ' + "paper cups.");
+            Console.ReadLine();
             Console.WriteLine("You have" + ' ' + lemons + ' ' + "lemons.");
             Console.ReadLine();
             Console.WriteLine("You have" + ' ' + cupsOfSugar + ' ' + "cups of sugar.");
             Console.ReadLine();
             Console.WriteLine("You have" + ' ' + iceCubes + ' ' + "ice cubes.");
             Console.ReadLine();
+        }
+
+        public int AddPaperCupsFromStore(int paperCupsBought)
+        {
+            if(paperCups >= 0)
+            {
+                paperCups += paperCupsBought;
+            }
+            else
+            {
+                paperCups = paperCupsBought;
+            }
+            return paperCups;
         }
         public int AddLemonsFromStore(int lemonsBought)
         {
@@ -64,11 +80,24 @@ namespace LemonadeStand
             return iceCubes;
         }
 
-        public int SubtractLemonsFromCupsSold(Day Day, Recipe Recipe)
+        public int GetPaperCupsRemaining()
+        {
+            if(paperCups >= 0)
+            {
+                paperCups -= 0;
+            }
+            else if(paperCups < 0)
+            {
+                paperCups = 0;
+            }
+            return paperCups;
+        }
+
+        public int GetLemonsRemaining()
         {
             if(lemons >= 0)
             {
-                lemons -= Day.cupsSoldForTheDay * Recipe.lemons;
+                lemons -= 0;
             }
             else if(lemons < 0)
             {
@@ -77,11 +106,11 @@ namespace LemonadeStand
             return lemons;
         }
 
-        public int SubtractCupsOfSugarFromCupsSold(Day Day, Recipe Recipe)
+        public int GetCupsOfSugarRemaining()
         {
             if(cupsOfSugar >= 0)
             {
-                cupsOfSugar -= Day.cupsSoldForTheDay * Recipe.cupsOfSugar;
+                cupsOfSugar -= 0;
             }
             else if(cupsOfSugar < 0)
             {
@@ -90,11 +119,11 @@ namespace LemonadeStand
             return cupsOfSugar;
         }
 
-        public int SubstractIceCubesFromCupsSold(Day Day, Recipe Recipe)
+        public int GetIceCubesRemaining()
         {
             if(iceCubes >= 0)
             {
-                iceCubes -= Day.cupsSoldForTheDay * Recipe.iceCubes;
+                iceCubes -= 0;
             }
             else if(iceCubes < 0)
             {

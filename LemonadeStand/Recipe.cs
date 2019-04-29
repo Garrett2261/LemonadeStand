@@ -10,7 +10,7 @@ namespace LemonadeStand
     {
         public int lemons;
         public int cupsOfSugar;
-        public int iceCubes;
+        public int iceCubesPerCup;
         Inventory Inventory = new Inventory();
         public Recipe()
         {
@@ -52,21 +52,21 @@ namespace LemonadeStand
             return cupsOfSugar;
         }
 
-        public int GetNumberOfIceCubesUsed()
+        public int GetNumberOfIceCubesPerCup()
         {
             Console.WriteLine("The basic recipe amounts for 4 ice cubes. You can change this and set it to whatever you'd like.");
-            Console.WriteLine("How many ice cubes would you like to use in your recipe?");
+            Console.WriteLine("How many ice cubes would you like to use in each cup?");
             string number = Console.ReadLine();
             int ice = Int32.Parse(number);
             if(ice <= Inventory.iceCubes)
             {
-                iceCubes = ice;
+                iceCubesPerCup = ice;
             }
             else if(ice > Inventory.iceCubes)
             {
                 Console.WriteLine("You don't have that many ice cubes. Either buy some more from the store, or choose a lower amount.");
             }
-            return iceCubes;
+            return iceCubesPerCup;
         }
     }
 }
