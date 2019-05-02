@@ -31,11 +31,8 @@ namespace LemonadeStand
         public double priceOfTwoHundredFiftyIceCubes;
         public double priceOfFiveHundredIceCubes;
         public double totalCostSpentOnIngredients;
-        Inventory Inventory = new Inventory();
-        Player Player = new Player();
         public Store()
         {
-            //this.startMoney = 20.00;
             this.priceOfTwentyFivePaperCups = 0.82;
             this.priceOfFiftyPaperCups = 1.60;
             this.priceOfOneHundredPaperCups = 2.83;
@@ -50,44 +47,48 @@ namespace LemonadeStand
             this.priceOfFiveHundredIceCubes = 3.54;
         }
 
-        public void ExploreStore(Player Player)
+        public void ExploreStore(Player Player, Inventory Inventory)
         {
-            Console.WriteLine("Welcome to the store! Here you can buy all the ingredients you need for your lemonade such as lemons, sugar, and ice.");
-            Console.WriteLine("Please choose 'lemons', 'sugar', or 'ice'. Or if you don't need any ingredients and or are done shopping, enter 'exit'.");
+            Console.WriteLine("Welcome to the store! Here you can buy all the ingredients you need for your lemonade stand such as paper cups, lemons, sugar, and ice.");
+            Console.WriteLine("Please choose 'paper cups', 'lemons', 'sugar', or 'ice'. Or if you don't need any ingredients and or are done shopping, enter 'exit'.");
             string ingredient = Console.ReadLine();
             switch (ingredient)
             {
+                case "paper cups":
+                    BuyPaperCups(Player, Inventory);
+                    break;
                 case "lemons":
-                    BuyLemons(Player);
+                    BuyLemons(Player, Inventory);
                     break;
                 case "sugar":
-                    BuySugar(Player);
+                    BuySugar(Player, Inventory);
                     break;
                 case "ice":
-                    BuyIceCubes(Player);
+                    BuyIceCubes(Player, Inventory);
                     break;
                 case "exit":
                     break;
                 default:
                     Console.WriteLine("Not a valid ingredient. You can only buy lemons, sugar, or ice. Please try again.");
-                    break;
+                    ExploreStore(Player, Inventory);
+                    return;
             }
             return;
         }
         
-        public double GetRemainingMoney(double cost)
-        {
-            if(remainingMoney >= 0)
-            {
-                remainingMoney -= cost;
-            }
-            else
-            {
-                remainingMoney = startMoney - cost;
-            }
-            return remainingMoney;
+        //public double GetRemainingMoney(double cost)
+        //{
+        //    if(remainingMoney >= 0)
+        //    {
+        //        remainingMoney -= cost;
+        //    }
+        //    else
+        //    {
+        //        remainingMoney = startMoney - cost;
+        //    }
+        //    return remainingMoney;
 
-        }
+        //}
         public double SeeTotalCostForIngredients(double price)
         {
             totalCostSpentOnIngredients += price;
@@ -96,7 +97,7 @@ namespace LemonadeStand
 
         
 
-        public void BuyPaperCups(Player Player)
+        public void BuyPaperCups(Player Player, Inventory Inventory)
         {
 
             Console.WriteLine("You can either buy '25' paper cups for 0.82, '50' paper cups for 1.60, or '100' paper cups for 2.83. Or if you don't need any and or already have enough, you can enter 'menu' to go back to the Main Menu.");
@@ -113,12 +114,12 @@ namespace LemonadeStand
                     paperCupsBought = 100;
                     break;
                 case "menu":
-                    ExploreStore(Player);
-                    break;
+                    ExploreStore(Player, Inventory);
+                    return;
                 default:
                     Console.WriteLine("You can only purchase '25', '50', or '100' paper cups at a time. Please try again.");
-                    BuyPaperCups(Player);
-                    break;
+                    BuyPaperCups(Player, Inventory);
+                    return;
             }
             double cost = PaperCupCost(paperCupsBought);
             if (Player.money >= cost)
@@ -136,21 +137,21 @@ namespace LemonadeStand
                 switch (answer)
                 {
                     case "buy again":
-                        BuyPaperCups(Player);
+                        BuyPaperCups(Player, Inventory);
                         break;
                     case "menu":
-                        ExploreStore(Player);
+                        ExploreStore(Player, Inventory);
                         break;
                     default:
-                        ExploreStore(Player);
+                        ExploreStore(Player, Inventory);
                         break;
                 }
             }
 
-            BuyPaperCups(Player);
+            BuyPaperCups(Player, Inventory);
         }
 
-        public void BuyLemons(Player Player)
+        public void BuyLemons(Player Player, Inventory Inventory)
         {
             
             Console.WriteLine("You can either buy '10' lemons for 0.65, '30' lemons for 2.16, or '75' lemons for 4.34. Or if you don't need any and or already have enough, you can enter 'menu' to go back to the Main Menu.");
@@ -167,12 +168,12 @@ namespace LemonadeStand
                     lemonsBought = 75;
                     break;
                 case "menu":
-                    ExploreStore(Player);
-                    break;
+                    ExploreStore(Player, Inventory);
+                    return;
                 default:
                     Console.WriteLine("You can only purchase '10', '30', or '75' lemons at a time. Please try again.");
-                    BuyLemons(Player);
-                    break;       
+                    BuyLemons(Player, Inventory);
+                    return;       
             }
             double cost = LemonCost(lemonsBought);
             if(Player.money >= cost)
@@ -190,20 +191,20 @@ namespace LemonadeStand
                 switch (answer)
                 {
                     case "buy again":
-                        BuyLemons(Player);
+                        BuyLemons(Player, Inventory);
                         break;
                     case "menu":
-                        ExploreStore(Player);
+                        ExploreStore(Player, Inventory);
                         break;
                     default:
-                        ExploreStore(Player);
+                        ExploreStore(Player, Inventory);
                         break;
                 }
             }
             
-            BuyLemons(Player);
+            BuyLemons(Player, Inventory);
             }
-        public void BuySugar(Player Player)
+        public void BuySugar(Player Player, Inventory Inventory)
         {
             Console.WriteLine("You can either buy '8' cups of sugar for 0.53, '20' cups of sugar for 1.51, or '48' cups of sugar for 3.46. Or if you don't need any and or already have enough, you can enter 'menu' to go back to the Main Menu.");
             string amountWanted = Console.ReadLine();
@@ -219,12 +220,12 @@ namespace LemonadeStand
                     cupsOfSugarBought = 48;
                     break;
                 case "menu":
-                    ExploreStore(Player);
-                    break;
+                    ExploreStore(Player, Inventory);
+                    return;
                 default:
                     Console.WriteLine("You can only purchase '8', '20', or '48' cups of sugar at a time. Or if you are done, enter 'menu' to go back to the Main Menu.");
-                    BuySugar(Player);
-                    break;
+                    BuySugar(Player, Inventory);
+                    return;
             }
             double cost = SugarCost(cupsOfSugarBought);
             if (Player.money >= cost)
@@ -242,21 +243,21 @@ namespace LemonadeStand
                 switch (answer)
                 {
                     case "buy again":
-                        BuySugar(Player);
+                        BuySugar(Player, Inventory);
                         break;
                     case "menu":
-                        ExploreStore(Player);
+                        ExploreStore(Player, Inventory);
                         break;
                     default:
-                        ExploreStore(Player);
+                        ExploreStore(Player, Inventory);
                         break;
                 }
             }
             
-            BuySugar(Player);
+            BuySugar(Player, Inventory);
         }
 
-        public void BuyIceCubes(Player Player)
+        public void BuyIceCubes(Player Player, Inventory Inventory)
         {
             Console.WriteLine("You can either buy '100' ice cubes for 0.96, '250' ice cubes for 2.14, or '500' ice cubes for 3.54. Or if you don't need any and or already have enough, you can enter 'menu' to go back to the Main Menu.");
             string amountWanted = Console.ReadLine();
@@ -272,11 +273,11 @@ namespace LemonadeStand
                     numberOfIceCubesBought = 500;
                     break;
                 case "menu":
-                    ExploreStore(Player);
-                    break;
+                    ExploreStore(Player, Inventory);
+                    return;
                 default:
                     Console.WriteLine("You can only purchase '100', '250', or '500' ice cubes at a time. Or if you are done, enter 'menu' to go back to the Main Menu.");
-                    BuySugar(Player);
+                    BuySugar(Player, Inventory);
                     break;
             }
             double cost = IceCubeCost(numberOfIceCubesBought);
@@ -295,17 +296,17 @@ namespace LemonadeStand
                 switch (answer)
                 {
                     case "buy again":
-                        BuyIceCubes(Player);
+                        BuyIceCubes(Player, Inventory);
                         break;
                     case "menu":
-                        ExploreStore(Player);
-                        break;
+                        ExploreStore(Player, Inventory);
+                        return;
                     default:
-                        ExploreStore(Player);
-                        break;
+                        ExploreStore(Player, Inventory);
+                        return;
                 }
             }
-            BuyIceCubes(Player);
+            BuyIceCubes(Player, Inventory);
         }
 
         public double PaperCupCost(int paperCupsBought)
@@ -314,19 +315,16 @@ namespace LemonadeStand
             {
                 paperCupCost = priceOfTwentyFivePaperCups;
                 Console.WriteLine("Your total would be" + " " + "$" + paperCupCost);
-                Console.ReadLine();
             }
             else if (paperCupsBought == 50)
             {
                 paperCupCost = priceOfFiftyPaperCups;
                 Console.WriteLine("Your total would be" + " " + "$" + paperCupCost);
-                Console.ReadLine();
             }
             else if (paperCupsBought == 100)
             {
                 paperCupCost = priceOfOneHundredPaperCups;
                 Console.WriteLine("Your total would be" + " " + "$" + paperCupCost);
-                Console.ReadLine();
             }
 
             return paperCupCost;
@@ -338,19 +336,16 @@ namespace LemonadeStand
             {
                 lemonCost = priceOfTenLemons;
                 Console.WriteLine("Your total would be" + " " + "$" + lemonCost);
-                Console.ReadLine();
             }
             else if (lemonsBought == 30)
             {
                 lemonCost = priceOfThirtyLemons;
                 Console.WriteLine("Your total would be" + " " + "$" + lemonCost);
-                Console.ReadLine();
             }
             else if(lemonsBought == 75)
             {
                 lemonCost = priceOfSeventyFiveLemons;
                 Console.WriteLine("Your total would be" + " " + "$" + lemonCost);
-                Console.ReadLine();
             }
 
             return lemonCost;
@@ -362,19 +357,16 @@ namespace LemonadeStand
             {
                 sugarCost = priceOfEightCupsOfSugar;
                 Console.WriteLine("Your total would be" + " " + "$" + sugarCost);
-                Console.ReadLine();
             }
             else if (sugarBought == 20)
             {
                 sugarCost = priceOfTwentyCupsOfSugar;
                 Console.WriteLine("Your total would be" + " " + "$" + sugarCost);
-                Console.ReadLine();
             }
             else if (sugarBought == 48)
             {
                 sugarCost = priceOfFortyEightCupsOfSugar;
                 Console.WriteLine("Your total would be" + " " + "$" + sugarCost);
-                Console.ReadLine();
             }
            return sugarCost;
         }
@@ -385,19 +377,16 @@ namespace LemonadeStand
             {
                 iceCubesCost = priceOfOneHundredIceCubes;
                 Console.WriteLine("Your total would be" + " " + "$" + iceCubesCost);
-                Console.ReadLine();
             }
             else if (iceCubesBought == 250)
             {
                 iceCubesCost = priceOfTwoHundredFiftyIceCubes;
                 Console.WriteLine("Your total would be" + " " + "$" + iceCubesCost);
-                Console.ReadLine();
             }
             else if (iceCubesBought == 500)
             {
                 iceCubesCost = priceOfFiveHundredIceCubes;
                 Console.WriteLine("Your total would be" + " " + "$" + iceCubesCost);
-                Console.ReadLine();
             }
 
             return iceCubesCost;

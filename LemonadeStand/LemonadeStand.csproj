@@ -45,6 +45,7 @@
     <Compile Include="Customer.cs" />
     <Compile Include="Database.cs" />
     <Compile Include="Day.cs" />
+    <Compile Include="Demand.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="Inventory.cs" />
     <Compile Include="Pitcher.cs" />

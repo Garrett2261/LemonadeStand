@@ -22,7 +22,7 @@ namespace LemonadeStand
         {
             List<string> Condition = new List<string>
             {
-                "Sunny",
+                "Clear Skies",
                 "Rainy",
                 "Partly Cloudy",
                 "Overcast"
@@ -33,7 +33,7 @@ namespace LemonadeStand
             {
                 if(WeatherType.Next(1, 4) == 1)
                 {
-                    weatherCondition = "Sunny";
+                    weatherCondition = "Clear Skies";
                     return weatherCondition;    
                 }
                 else if(WeatherType.Next(1, 4) == 2)

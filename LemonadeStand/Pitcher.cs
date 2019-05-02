@@ -15,7 +15,6 @@ namespace LemonadeStand
         {
             this.cupsForPitcher = cupsInPitcher;
         }
-
         public int GetCupsInPitcher(Recipe Recipe)
         {
             if(Recipe.iceCubesPerCup > 10)

@@ -9,48 +9,31 @@ namespace LemonadeStand
     public class Customer
     {
         public int cupsOfLemonade;
-        public int spendingLimit;
+        public double spendingLimit;
         public double costLimit;
         public Random Random = new Random();
-        Inventory Inventory = new Inventory();
-        Day Day = new Day();
         public Customer()
         {
-            this.spendingLimit = Random.Next(0,5);
-            this.costLimit = Random.NextDouble();
+            this.spendingLimit = Random.Next(0, 150)/100;
+            //this.costLimit = Random.NextDouble();
         }
-
-        public int BuyLemonade(double price/*string weather, int temperature*/)
+        //Think about doing an average cost for a customer. Let's say a customer on average would only want to spend $1.50 on lemonade. 
+        //If the price was 0.50 then they would purchase 3 cups of lemonade. 
+        //If the weather got hotter then that customer would be willing to pay more
+        public int BuyLemonade(double price)
         {
             
-            if(price > costLimit)
+            if(price > spendingLimit)
             {
-                cupsOfLemonade = Convert.ToInt32(Random.Next(0, 1));
+                cupsOfLemonade = 0;
                 Console.WriteLine("The customer bought" + ' ' + cupsOfLemonade + ' ' + "cups of lemonade.");
             }
-            //Include the max cost of lemonade too in this function.
-            else if(price <= costLimit)
+            else if(price <= spendingLimit)
             {
-                //weather = Weather.GetWeatherCondition();
-                //temperature = Weather.GetTemperature();
                 cupsOfLemonade = Convert.ToInt32(Math.Floor(spendingLimit / price));
                 Console.WriteLine("The customer bought" + ' ' + cupsOfLemonade + ' ' + "cups of lemonade.");
-                
             }
-            //Day.CheckCupsBoughtFromSale(cupsOfLemonade);
             return cupsOfLemonade;
-
-            
-            
-            
-            
-
-
-            //return an int for the cupsOfLemonade variable and the number returned is based on factors such as the weather and price
-            //This will vary from customer to customer and also may depend on the amount of money 
-            //Or have a thing where depending on the price a certain number of cups will be bough
         }
-
-
     }
 }

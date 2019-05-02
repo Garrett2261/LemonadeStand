@@ -10,26 +10,22 @@ namespace LemonadeStand
     {
         public double money;
         public double moneyMade;
-        //public double moneyLeft;
         public int numberOfDays;
         public double costOfLemonade;
         public double totalCost;
         public int cups;
         public double dailyProfit;
         public double totalProfit;
-        Day Day = new Day();
-        //Store Store = new Store();
         public Player ()
         {
             this.money = 20.00;
-            //this.moneyLeft = Store.remainingMoney + moneyMade;
         }
 
-        //public double GetDailyProfit()
-        //{
-        //    dailyProfit = moneyMade - Store.totalCostSpentOnIngredients;
-        //    return dailyProfit;
-        //}
+        public double GetDailyProfit(Store Store)
+        {
+            dailyProfit += moneyMade - Store.totalCostSpentOnIngredients;
+            return dailyProfit;
+        }
 
         public double GetTotalRunningProfit()
         {

@@ -12,43 +12,68 @@ namespace LemonadeStand
         public double amountEarnedOnDay;
         public double profitEarnedForDay;
         public Random Demand = new Random();
+        public string demand;
         public string weatherCondition;
         public int temperature;
         public int customersForDay;
         public int cupsSold;
         public int cupsSoldForTheDay;
         List<string> WeatherForecast = new List<string>();
-
-
-
-
-
-
-
         public Day()
         {
             this.weatherCondition = Weather.GetWeatherCondition();
             this.temperature = Weather.GetTemperature();
         }
-
-        public int CountCustomers()
+        
+        public int CountCustomers(Player Player)
         {
-           if(weatherCondition == "Sunny")
+           if(weatherCondition == "Clear Skies")
             {
                 if((temperature >= 75) && (temperature <= 100))
                 {
-                    customersForDay = Demand.Next(50,75);
+                    customersForDay = Demand.Next(50, 75);
                 }
                 else if((temperature >= 50) && (temperature <= 75))
                 {
-                    customersForDay = Demand.Next(15,25);
+                    customersForDay = Demand.Next(50,75);
                 }
                 else
                 {
-                    customersForDay = 25;
+                    customersForDay = 50;
                 }
+                
             }
            else if(weatherCondition == "Rainy")
+            {
+                if((temperature >= 75) && (temperature <= 100))
+                {
+                    customersForDay = Demand.Next(25, 50);
+                }
+                else if((temperature >= 50) && (temperature <= 75))
+                {
+                    customersForDay = Demand.Next(15, 25);
+                }
+                else
+                {
+                    customersForDay = 15;
+                }
+            }
+           else if(weatherCondition == "Partly Cloudy")
+            {
+                if((temperature >= 75) && (temperature <= 100))
+                {
+                    customersForDay = Demand.Next(50, 75);
+                }
+                else if((temperature >= 50) && (temperature <= 75))
+                {
+                    customersForDay = Demand.Next(25, 50);
+                }
+                else
+                {
+                    customersForDay = 50;
+                }
+            }
+           else if(weatherCondition == "Overcast")
             {
                 if((temperature >= 75) && (temperature <= 100))
                 {
@@ -56,50 +81,19 @@ namespace LemonadeStand
                 }
                 else if((temperature >= 50) && (temperature <= 75))
                 {
-                    customersForDay = Demand.Next(5, 15);
+                    customersForDay = Demand.Next(15, 25);
                 }
                 else
                 {
-                    customersForDay = 5;
-                }
-            }
-           else if(weatherCondition == "Partly Cloudy")
-            {
-                if((temperature >= 75) && (temperature <= 100))
-                {
-                    customersForDay = Demand.Next(35, 45);
-                }
-                else if((temperature >= 50) && (temperature <= 75))
-                {
-                    customersForDay = Demand.Next(20, 35);
-                }
-                else
-                {
-                    customersForDay = 20;
-                }
-            }
-           else if(weatherCondition == "Overcast")
-            {
-                if((temperature >= 75) && (temperature <= 100))
-                {
-                    customersForDay = Demand.Next(5, 15);
-                }
-                else if((temperature >= 50) && (temperature <= 75))
-                {
-                    customersForDay = Demand.Next(1, 5);
-                }
-                else
-                {
-                    customersForDay = 1;
+                    customersForDay = 15;
                 }
             }
             else
             {
-                customersForDay = Demand.Next(0, 50);
+                customersForDay = 15;
             }
             return customersForDay;
         }
-
         public int CheckCupsBoughtFromSale(int customerCups)
         {
             cupsSold = customerCups;
@@ -120,25 +114,19 @@ namespace LemonadeStand
 
         public void CheckWeatherForecast()
         {
-            
             for (int i = 0; i < 7; ++i)
             {
-                
                 var dayWeather = Weather.GetWeatherCondition();
                 var dayTemperature = Weather.GetTemperature();
                 WeatherForecast.Add((dayWeather + ' ' + dayTemperature.ToString()));
                 Console.WriteLine(dayWeather + ' ' + dayTemperature);
                 Console.ReadLine();
-            }
-            
+            }    
         }
-
         public void CheckTodaysWeather()
         {
             Console.WriteLine(weatherCondition + ' ' + temperature);
             Console.ReadLine();        
-        }
-
-        
+        }    
     }
 }
