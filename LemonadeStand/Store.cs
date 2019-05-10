@@ -76,19 +76,6 @@ namespace LemonadeStand
             return;
         }
         
-        //public double GetRemainingMoney(double cost)
-        //{
-        //    if(remainingMoney >= 0)
-        //    {
-        //        remainingMoney -= cost;
-        //    }
-        //    else
-        //    {
-        //        remainingMoney = startMoney - cost;
-        //    }
-        //    return remainingMoney;
-
-        //}
         public double SeeTotalCostForIngredients(double price)
         {
             totalCostSpentOnIngredients += price;

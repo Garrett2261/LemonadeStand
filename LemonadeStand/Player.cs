@@ -45,7 +45,7 @@ namespace LemonadeStand
         {
             cups = Customer.cupsOfLemonade;
             moneyMade += cups * costOfLemonade;
-            money += moneyMade;
+            money += cups * costOfLemonade;
             return moneyMade;
         }
         
@@ -60,18 +60,18 @@ namespace LemonadeStand
 
         public double ChangePriceDuringDay()
         {
-            Console.WriteLine("Your current price is" + ' ' + "$" + costOfLemonade + ". Would you like to keep your current price, or would you like to change it? Please enter 'yes', or 'no'.");
+            Console.WriteLine("Your current price is" + ' ' + "$" + costOfLemonade + ". Would you like to keep your current price, or would you like to change it? Please enter 'keep', or 'change'.");
             string answer = Console.ReadLine();
             switch (answer)
             {
-                case "yes":
+                case "change":
                     double newPrice = SetPrice();
                     costOfLemonade = newPrice;
                     break;
-                case "no":
+                case "keep":
                     break;
                 default:
-                    Console.WriteLine("Please enter only 'yes' or 'no'.");
+                    Console.WriteLine("Please enter only 'keep' or 'change'.");
                     ChangePriceDuringDay();
                     break;
             }

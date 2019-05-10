@@ -29,7 +29,6 @@ namespace LemonadeStand
         }
         public void StartGame()
         {
-            //Use if statements after the new customer object is made and then 
             Player.moneyMade = 0;
             Store.totalCostSpentOnIngredients = 0;
             Player.dailyProfit = 0;
@@ -45,219 +44,63 @@ namespace LemonadeStand
             Pitcher.GetCupsInPitcher(Recipe);
             price = Player.SetPrice();
             counter = 0;
+            secondCounter = 1;
             int customers = DayOfTheWeek.CountCustomers(Player);
-            while((Inventory.paperCups > 0 && Inventory.lemons > 0 && Inventory.cupsOfSugar > 0 && Inventory.iceCubes > 0) && counter < customers)
+            int cupsInPitcher = Pitcher.cupsInPitcher;
+            while ((Inventory.paperCups > 0 && Inventory.lemons > 0 && Inventory.cupsOfSugar > 0 && Inventory.iceCubes > 0) && counter < customers)
             {
                 if (counter >= 0)
                 {
+                    if(secondCounter % 10 == 0)
+                    {
+                        Player.ChangePriceDuringDay();
+                    }
+                    secondCounter++;
                     Console.WriteLine("Customer " + (counter + 1));
                     counter++;
                     Customer Customer = new Customer();
-                    if(DayOfTheWeek.weatherCondition == "Clear Skies" && DayOfTheWeek.temperature >= 75)
+                    Customer.BuyLemonade(DayOfTheWeek, Player);
+                    //Have it so that it checks how many cups of lemonade are left and if the cups of lemonade that the customer wants to purchase is bigger
+                    //than the cups left in the Pitcher, then su
+                    //Change the number of cups the customer will buy.
+                    //if(Pitcher.cupsInPitcher)
+                    if(Customer.cupsOfLemonade > Pitcher.cupsInPitcher)
                     {
-                        int chance = ChanceOfBuying.Next(1, 100);
-                        if(chance <= 95)
-                        {
-                            Customer.BuyLemonade(price);
-                            if (Pitcher.cupsInPitcher == 0)
-                            {
-                                Inventory.lemons -= Recipe.lemons;
-                                Inventory.cupsOfSugar -= Recipe.cupsOfSugar;
-                                Pitcher.cupsInPitcher += Pitcher.cupsForPitcher;
-                            }
-                            else if (Pitcher.cupsInPitcher > 0)
-                            {
-                                Pitcher.cupsInPitcher -= Customer.cupsOfLemonade;
-                            }
-                            Inventory.paperCups -= Customer.cupsOfLemonade;
-                            Inventory.iceCubes -= Customer.cupsOfLemonade * Recipe.iceCubesPerCup;
-                            Inventory.GetPaperCupsRemaining();
-                            Inventory.GetLemonsRemaining();
-                            Inventory.GetCupsOfSugarRemaining();
-                            Inventory.GetIceCubesRemaining();
-                            Player.CalculateTotal(Customer);
-                        }
-                        
+                        Inventory.paperCups -= Customer.cupsOfLemonade;
+                        Inventory.iceCubes -= Customer.cupsOfLemonade * Recipe.iceCubesPerCup;
+                        Inventory.GetPaperCupsRemaining();
+                        Inventory.GetIceCubesRemaining();
+                        Customer.cupsOfLemonade -= Pitcher.cupsInPitcher;
+                        Pitcher.cupsInPitcher -= Pitcher.cupsInPitcher;
+                        Inventory.lemons -= Recipe.lemons;
+                        Inventory.cupsOfSugar -= Recipe.cupsOfSugar;
+                        Pitcher.cupsInPitcher += cupsInPitcher;
+                        Pitcher.cupsInPitcher -= Customer.cupsOfLemonade;
                     }
-                    else if(DayOfTheWeek.weatherCondition == "Clear Skies" && DayOfTheWeek.temperature < 75)
+                    else if(Customer.cupsOfLemonade == Pitcher.cupsInPitcher)
                     {
-                        int chance = ChanceOfBuying.Next(1, 100);
-                        if(chance <= 80)
-                        {
-                            Customer.BuyLemonade(price);
-                            if (Pitcher.cupsInPitcher == 0)
-                            {
-                                Inventory.lemons -= Recipe.lemons;
-                                Inventory.cupsOfSugar -= Recipe.cupsOfSugar;
-                                Pitcher.cupsInPitcher += Pitcher.cupsForPitcher;
-                            }
-                            else if (Pitcher.cupsInPitcher > 0)
-                            {
-                                Pitcher.cupsInPitcher -= Customer.cupsOfLemonade;
-                            }
-                            Inventory.paperCups -= Customer.cupsOfLemonade;
-                            Inventory.iceCubes -= Customer.cupsOfLemonade * Recipe.iceCubesPerCup;
-                            Inventory.GetPaperCupsRemaining();
-                            Inventory.GetLemonsRemaining();
-                            Inventory.GetCupsOfSugarRemaining();
-                            Inventory.GetIceCubesRemaining();
-                            Player.CalculateTotal(Customer);
-                        }
+                        Inventory.paperCups -= Customer.cupsOfLemonade;
+                        Inventory.iceCubes -= Customer.cupsOfLemonade * Recipe.iceCubesPerCup;
+                        Inventory.GetPaperCupsRemaining();
+                        Inventory.GetIceCubesRemaining();
+                        Pitcher.cupsInPitcher -= Customer.cupsOfLemonade;
+                        Inventory.lemons -= Recipe.lemons;
+                        Inventory.cupsOfSugar -= Recipe.cupsOfSugar;
+                        Pitcher.cupsInPitcher += cupsInPitcher;
                     }
-                    else if(DayOfTheWeek.weatherCondition == "Rainy" && DayOfTheWeek.temperature >= 75)
+                    else if (Customer.cupsOfLemonade < Pitcher.cupsInPitcher)
                     {
-                        int chance = ChanceOfBuying.Next(1, 100);
-                        if(chance <= 30)
-                        {
-                            Customer.BuyLemonade(price);
-                            if (Pitcher.cupsInPitcher == 0)
-                            {
-                                Inventory.lemons -= Recipe.lemons;
-                                Inventory.cupsOfSugar -= Recipe.cupsOfSugar;
-                                Pitcher.cupsInPitcher += Pitcher.cupsForPitcher;
-                            }
-                            else if (Pitcher.cupsInPitcher > 0)
-                            {
-                                Pitcher.cupsInPitcher -= Customer.cupsOfLemonade;
-                            }
-                            Inventory.paperCups -= Customer.cupsOfLemonade;
-                            Inventory.iceCubes -= Customer.cupsOfLemonade * Recipe.iceCubesPerCup;
-                            Inventory.GetPaperCupsRemaining();
-                            Inventory.GetLemonsRemaining();
-                            Inventory.GetCupsOfSugarRemaining();
-                            Inventory.GetIceCubesRemaining();
-                            Player.CalculateTotal(Customer);
-                        }
+                        Inventory.paperCups -= Customer.cupsOfLemonade;
+                        Inventory.iceCubes -= Customer.cupsOfLemonade * Recipe.iceCubesPerCup;
+                        Inventory.GetPaperCupsRemaining();
+                        Inventory.GetIceCubesRemaining();
+                        Pitcher.cupsInPitcher -= Customer.cupsOfLemonade;
                     }
-                    else if (DayOfTheWeek.weatherCondition == "Rainy" && DayOfTheWeek.temperature < 75)
-                    {
-                        int chance = ChanceOfBuying.Next(1, 100);
-                        if (chance <= 20)
-                        {
-                            Customer.BuyLemonade(price);
-                            if (Pitcher.cupsInPitcher == 0)
-                            {
-                                Inventory.lemons -= Recipe.lemons;
-                                Inventory.cupsOfSugar -= Recipe.cupsOfSugar;
-                                Pitcher.cupsInPitcher += Pitcher.cupsForPitcher;
-                            }
-                            else if (Pitcher.cupsInPitcher > 0)
-                            {
-                                Pitcher.cupsInPitcher -= Customer.cupsOfLemonade;
-                            }
-                            Inventory.paperCups -= Customer.cupsOfLemonade;
-                            Inventory.iceCubes -= Customer.cupsOfLemonade * Recipe.iceCubesPerCup;
-                            Inventory.GetPaperCupsRemaining();
-                            Inventory.GetLemonsRemaining();
-                            Inventory.GetCupsOfSugarRemaining();
-                            Inventory.GetIceCubesRemaining();
-                            Player.CalculateTotal(Customer);
-                        }
-                    }
-                    else if (DayOfTheWeek.weatherCondition == "Partly Cloudy" && DayOfTheWeek.temperature >= 75)
-                    {
-                        int chance = ChanceOfBuying.Next(1, 100);
-                        if (chance <= 85)
-                        {
-                            Customer.BuyLemonade(price);
-                            if (Pitcher.cupsInPitcher == 0)
-                            {
-                                Inventory.lemons -= Recipe.lemons;
-                                Inventory.cupsOfSugar -= Recipe.cupsOfSugar;
-                                Pitcher.cupsInPitcher += Pitcher.cupsForPitcher;
-                            }
-                            else if (Pitcher.cupsInPitcher > 0)
-                            {
-                                Pitcher.cupsInPitcher -= Customer.cupsOfLemonade;
-                            }
-                            Inventory.paperCups -= Customer.cupsOfLemonade;
-                            Inventory.iceCubes -= Customer.cupsOfLemonade * Recipe.iceCubesPerCup;
-                            Inventory.GetPaperCupsRemaining();
-                            Inventory.GetLemonsRemaining();
-                            Inventory.GetCupsOfSugarRemaining();
-                            Inventory.GetIceCubesRemaining();
-                            Player.CalculateTotal(Customer);
-                        }
-                    }
-                    else if (DayOfTheWeek.weatherCondition == "Partly Cloudy" && DayOfTheWeek.temperature < 75)
-                    {
-                        int chance = ChanceOfBuying.Next(1, 100);
-                        if (chance <= 65)
-                        {
-                            Customer.BuyLemonade(price);
-                            if (Pitcher.cupsInPitcher == 0)
-                            {
-                                Inventory.lemons -= Recipe.lemons;
-                                Inventory.cupsOfSugar -= Recipe.cupsOfSugar;
-                                Pitcher.cupsInPitcher += Pitcher.cupsForPitcher;
-                            }
-                            else if (Pitcher.cupsInPitcher > 0)
-                            {
-                                Pitcher.cupsInPitcher -= Customer.cupsOfLemonade;
-                            }
-                            Inventory.paperCups -= Customer.cupsOfLemonade;
-                            Inventory.iceCubes -= Customer.cupsOfLemonade * Recipe.iceCubesPerCup;
-                            Inventory.GetPaperCupsRemaining();
-                            Inventory.GetLemonsRemaining();
-                            Inventory.GetCupsOfSugarRemaining();
-                            Inventory.GetIceCubesRemaining();
-                            Player.CalculateTotal(Customer);
-                        }
-                    }
-                    else if (DayOfTheWeek.weatherCondition == "Overcast" && DayOfTheWeek.temperature >= 75)
-                    {
-                        int chance = ChanceOfBuying.Next(1, 100);
-                        if (chance <= 55)
-                        {
-                            Customer.BuyLemonade(price);
-                            if (Pitcher.cupsInPitcher == 0)
-                            {
-                                Inventory.lemons -= Recipe.lemons;
-                                Inventory.cupsOfSugar -= Recipe.cupsOfSugar;
-                                Pitcher.cupsInPitcher += Pitcher.cupsForPitcher;
-                            }
-                            else if (Pitcher.cupsInPitcher > 0)
-                            {
-                                Pitcher.cupsInPitcher -= Customer.cupsOfLemonade;
-                            }
-                            Inventory.paperCups -= Customer.cupsOfLemonade;
-                            Inventory.iceCubes -= Customer.cupsOfLemonade * Recipe.iceCubesPerCup;
-                            Inventory.GetPaperCupsRemaining();
-                            Inventory.GetLemonsRemaining();
-                            Inventory.GetCupsOfSugarRemaining();
-                            Inventory.GetIceCubesRemaining();
-                            Player.CalculateTotal(Customer);
-                        }
-                    }
-                    else if (DayOfTheWeek.weatherCondition == "Overcast" && DayOfTheWeek.temperature < 75)
-                    {
-                        int chance = ChanceOfBuying.Next(1, 100);
-                        if (chance <= 45)
-                        {
-                            Customer.BuyLemonade(price);
-                            if (Pitcher.cupsInPitcher == 0)
-                            {
-                                Inventory.lemons -= Recipe.lemons;
-                                Inventory.cupsOfSugar -= Recipe.cupsOfSugar;
-                                Pitcher.cupsInPitcher += Pitcher.cupsForPitcher;
-                            }
-                            else if (Pitcher.cupsInPitcher > 0)
-                            {
-                                Pitcher.cupsInPitcher -= Customer.cupsOfLemonade;
-                            }
-                            Inventory.paperCups -= Customer.cupsOfLemonade;
-                            Inventory.iceCubes -= Customer.cupsOfLemonade * Recipe.iceCubesPerCup;
-                            Inventory.GetPaperCupsRemaining();
-                            Inventory.GetLemonsRemaining();
-                            Inventory.GetCupsOfSugarRemaining();
-                            Inventory.GetIceCubesRemaining();
-                            Player.CalculateTotal(Customer);
-                        }
-                    }
-
-
+                    
+                    Player.CalculateTotal(Customer);
                 }
             }
+            
             if(Inventory.paperCups == 0 || Inventory.lemons == 0 || Inventory.cupsOfSugar == 0 || Inventory.iceCubes == 0)
             {
                 Console.WriteLine("You ran out of ingredients and cannot sell anymore lemonade for the rest of the day. Please try again tomorrow.");
@@ -266,6 +109,11 @@ namespace LemonadeStand
             if(counter >= customers)
             {
                 Console.WriteLine("The day is over now. You made $" + Player.moneyMade + ' ' + "for the day.");
+            }
+            if(Pitcher.cupsInPitcher > 0)
+            {
+                Inventory.lemons -= Recipe.lemons;
+                Inventory.cupsOfSugar -= Recipe.cupsOfSugar;
             }
             Inventory.DisplayAmountOfEachIngredient();
             Console.WriteLine("You now have" + ' ' + "$" + Player.money + ".");
