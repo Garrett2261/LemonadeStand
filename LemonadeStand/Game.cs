@@ -37,16 +37,29 @@ namespace LemonadeStand
             DayOfTheWeek.CheckTodaysWeather();
             Store.ExploreStore(Player, Inventory);
             Inventory.DisplayAmountOfEachIngredient();
+            Console.WriteLine("Now that you have some ingredients, you can set the price and make the recipe for your lemonade. If you need help enter 'help'.");
+            string action = Console.ReadLine();
+            switch (action)
+            {
+                case "help":
+                    Recipe.Help();
+                    break;
+                default:
+                    break;
+            }
+            price = Player.SetPrice();
             Recipe.GetNumberOfLemonsUsed(Inventory);
             Recipe.GetNumberOfCupsOfSugarUsed(Inventory);
             Recipe.GetNumberOfIceCubesPerCup(Inventory);
+            Inventory.lemons -= Recipe.lemons;
+            Inventory.cupsOfSugar -= Recipe.cupsOfSugar;
             Pitcher Pitcher = new Pitcher();
             Pitcher.GetCupsInPitcher(Recipe);
-            price = Player.SetPrice();
             counter = 0;
             secondCounter = 1;
             int customers = DayOfTheWeek.CountCustomers(Player);
             int cupsInPitcher = Pitcher.cupsInPitcher;
+
             while ((Inventory.paperCups > 0 && Inventory.lemons > 0 && Inventory.cupsOfSugar > 0 && Inventory.iceCubes > 0) && counter < customers)
             {
                 if (counter >= 0)
@@ -60,10 +73,6 @@ namespace LemonadeStand
                     counter++;
                     Customer Customer = new Customer();
                     Customer.BuyLemonade(DayOfTheWeek, Player);
-                    //Have it so that it checks how many cups of lemonade are left and if the cups of lemonade that the customer wants to purchase is bigger
-                    //than the cups left in the Pitcher, then su
-                    //Change the number of cups the customer will buy.
-                    //if(Pitcher.cupsInPitcher)
                     if(Customer.cupsOfLemonade > Pitcher.cupsInPitcher)
                     {
                         Inventory.paperCups -= Customer.cupsOfLemonade;
@@ -114,6 +123,11 @@ namespace LemonadeStand
             {
                 Inventory.lemons -= Recipe.lemons;
                 Inventory.cupsOfSugar -= Recipe.cupsOfSugar;
+            }
+            if(Inventory.iceCubes > 0)
+            {
+                Console.WriteLine("Your remaining ice cubes have melted.");
+                Inventory.iceCubes -= Inventory.iceCubes;
             }
             Inventory.DisplayAmountOfEachIngredient();
             Console.WriteLine("You now have" + ' ' + "$" + Player.money + ".");

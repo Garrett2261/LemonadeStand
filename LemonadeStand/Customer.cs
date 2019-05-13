@@ -14,14 +14,7 @@ namespace LemonadeStand
         public Random Random = new Random();
         public Customer()
         {
-            
-            //this.spendingLimit = Random.Next(100, 500)/100;
-            //this.costLimit = Random.NextDouble();
         }
-        //Get the number of cups the customers will buy based on the weather conditions and the price
-        //Base how many cups the Customer will possibly by based on the different weather conditions
-        //and temperatures, as well as the different prices. 
-        //Think about doing a willingness to pay in regards to the price of the cup of lemonade and 
         public int BuyLemonade(Day Day, Player Player)
         {
             if(Day.weatherCondition == "Clear Skies" && (Day.temperature >= 75))
@@ -143,5 +136,6 @@ namespace LemonadeStand
 
             return cupsOfLemonade;
         }
+        
     }
 }

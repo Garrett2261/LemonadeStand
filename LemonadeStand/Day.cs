@@ -23,57 +23,6 @@ namespace LemonadeStand
             this.weatherCondition = Weather.GetWeatherCondition();
             this.temperature = Weather.GetTemperature();
         }
-        //The better the weather then the more potential customers that will show up which means a higher demand. 
-        public int CountPotentialCustomers()
-        {
-            if (weatherCondition == "Clear Skies")
-            {
-                if ((temperature >= 75) && (temperature <= 100))
-                {
-                    potentialCustomersForDay = 100;
-                }
-                else if ((temperature >= 50) && (temperature <= 75))
-                {
-                    potentialCustomersForDay = 75;
-                }
-            }
-            else if (weatherCondition == "Rainy")
-            {
-                if ((temperature >= 75) && (temperature <= 100))
-                {
-                    potentialCustomersForDay = 48;
-                }
-                else if ((temperature >= 50) && (temperature <= 75))
-                {
-                    potentialCustomersForDay = 24;
-                }
-            }
-            else if (weatherCondition == "Partly Cloudy")
-            {
-                if ((temperature >= 75) && (temperature <= 100))
-                {
-                    potentialCustomersForDay = 25;
-                }
-                else if ((temperature >= 50) && (temperature <= 75))
-                {
-                    potentialCustomersForDay = 50;
-                }
-            }
-            else if (weatherCondition == "Overcast")
-            {
-                if ((temperature >= 75) && (temperature <= 100))
-                {
-                    potentialCustomersForDay = 50;
-                }
-                else if ((temperature >= 50) && (temperature <= 75))
-                {
-                    potentialCustomersForDay = 25;
-                }
-            }
-            return potentialCustomersForDay;
-        }
-        //The amount of Customers should be based on the price and weather. How ever many customers I get is how many times I run the BuyLemonade function from the Customer Class
-        //Do that in the Game Class in the StartGame function
         public int CountCustomers(Player Player)
         {
            if(weatherCondition == "Clear Skies")
@@ -142,23 +91,6 @@ namespace LemonadeStand
                 customersForDay = 15;
             }
             return customersForDay;
-        }
-        public int CheckCupsBoughtFromSale(int customerCups)
-        {
-            cupsSold = customerCups;
-            return cupsSold;
-        }
-        public int CheckTotalCupsBoughtForTheDay()
-        {
-            if(cupsSoldForTheDay > 0)
-            {
-                cupsSoldForTheDay += cupsSold;
-            }
-            else
-            {
-                cupsSoldForTheDay = cupsSold;
-            }
-            return cupsSoldForTheDay;
         }
 
         public void CheckWeatherForecast()

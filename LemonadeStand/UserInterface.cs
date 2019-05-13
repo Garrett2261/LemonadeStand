@@ -8,6 +8,6 @@ namespace LemonadeStand
 {
     interface IUserInterface
     {
-
+        void Help();
     }
 }
