@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 
 namespace LemonadeStand
 {
+    //For this class, Store, I made it so that when the player is at the store, they can buy ingredients for their lemonade stand. They can only buy
+    //ingredients, and they can't sell anything or change the price, etc.
     public class Store: IUserInterface
     {
         public double paperCupCost;
